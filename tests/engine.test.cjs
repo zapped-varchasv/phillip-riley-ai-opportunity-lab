@@ -1,0 +1,15 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const E=require('../dist/engine.js');
+const D=require('../dist/data.js');
+test('complete approved role fields produce a reviewable draft',()=>{const r=E.trial('brief',D.scenarios.brief[0]);assert.equal(r.blocked,false);assert.ok(r.text.includes('145,000'));assert.equal(r.evidence.length,7);});
+test('missing salary is flagged rather than invented',()=>{const r=E.trial('brief',D.scenarios.brief[1]);assert.equal(r.blocked,true);assert.ok(r.text.includes('[Confirm salary with client]'));});
+test('no contact permission means no candidate message',()=>{const r=E.trial('care',D.scenarios.care[1]);assert.equal(r.blocked,true);assert.ok(r.text.startsWith('HOLD'));assert.ok(!r.text.includes('Hello'));});
+test('unknown candidate status cannot produce a releasable draft',()=>{const r=E.trial('care',{...D.scenarios.care[0],status:''});assert.equal(r.blocked,true);assert.ok(r.text.startsWith('HOLD'));});
+test('pipeline rejects inverted, fractional and negative counts',()=>{for(const change of [{interviews:50},{screened:-1},{submitted:1.5}])assert.equal(E.trial('pulse',{...D.scenarios.pulse[0],...change}).blocked,true);});
+test('pipeline handles a zero cohort without division errors',()=>{const r=E.trial('pulse',{...D.scenarios.pulse[0],sourced:0,screened:0,submitted:0,interviews:0});assert.equal(r.blocked,false);assert.ok(r.text.includes('0%'));assert.ok(!r.text.includes('NaN'));});
+test('business case matches an independently calculated base case',()=>{const c=E.businessCase({users:10,tasks:8,hourly:65,review:3,weeks:46},D.paths[0]);assert.equal(c.hours,322);assert.equal(c.benefit,20930);assert.equal(c.year1,5400);assert.equal(c.year3,11400);assert.equal(c.net1,15530);assert.equal(c.net3,51390);});
+test('review burden exceeding gross saving yields zero benefit and no payback',()=>{const c=E.businessCase({users:10,tasks:8,hourly:65,review:20},D.paths[0]);assert.equal(c.hours,0);assert.equal(c.payback,null);assert.equal(c.net1,-5400);});
+test('zero adoption, users or hourly value cannot create invented value',()=>{assert.equal(E.businessCase({users:10,tasks:8,hourly:65,review:3},{...D.paths[0],adoption:0}).benefit,0);assert.equal(E.businessCase({users:0,tasks:8,hourly:65,review:3},D.paths[0]).benefit,0);assert.equal(E.businessCase({users:10,tasks:8,hourly:0,review:3},D.paths[0]).breakEvenHours,null);});
+test('ranking has exactly sixteen unique bounded entries',()=>{assert.equal(D.opportunities.length,16);assert.equal(new Set(D.opportunities.map(o=>o.id)).size,16);for(const o of D.opportunities)assert.ok(E.score(o)>=20&&E.score(o)<=100);});
+test('changed source fields flow into a regenerated draft',()=>{const r=E.trial('brief',{...D.scenarios.brief[0],location:'Perth, WA'});assert.ok(r.text.includes('Perth, WA'));assert.ok(!r.text.includes('Sydney'));});
