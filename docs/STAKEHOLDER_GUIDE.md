@@ -16,7 +16,7 @@ The project asks whether approved templates, features already in use or a manage
 4. **A person approves the result.** In this prototype that only enables a local download.
 5. **The trial records quality and elapsed time.** Review and correction time count against the benefit.
 
-In this app, the transformation uses fixed templates. No external AI service processes the information. In a real trial, PRG would decide whether an existing tool, managed AI platform, specialist product or tailored interface best supports those steps.
+In the Trial studio, the transformation uses fixed templates. The saved workspace adds SQL persistence, recorded reviews and trial measurements. The separate AI assistant can send an explicitly submitted question and selected synthetic draft to OpenAI when its server connection and billing are ready. In a real trial, PRG would decide whether an existing tool, managed AI platform, specialist product or tailored interface best supports those steps.
 
 ## Three demonstrations
 

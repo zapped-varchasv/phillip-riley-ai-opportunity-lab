@@ -10,7 +10,7 @@
 | Update a candidate | Prepares a message from the recorded status; holds the workflow when contact permission is missing | Faster, more consistent communication |
 | Update a client | Turns fictional recruitment progress numbers into a brief with a blocker and next action | Less reporting work and clearer client updates |
 
-A person checks the draft before approving a local download. Nothing is sent to a candidate or client, and no company record changes. The demo uses fixed templates and rules; it does not call a live AI model.
+A person checks the draft before approving a local download. Nothing is sent to a candidate or client, and no company record changes. The Trial studio uses fixed templates and rules. The separate AI assistant has a server-side OpenAI integration, while the saved workspace keeps drafts, approvals and measurements in SQL.
 
 The wider project lists 16 possible improvements, compares four ways to deliver them, and sets out a 12-week discovery, trial and handover plan. Its purpose is to help staff and management evaluate useful changes before committing to them.
 
@@ -63,6 +63,21 @@ Click **Reset assumptions** before moving on. If asked, explain that the four op
 Open **Delivery roadmap**.
 
 “I would spend the first two weeks observing teams, mapping handovers and reviewing paid, configured and used capabilities. Then I would agree two or three small trials with the supervisor. Handover starts immediately: named owners, versioned examples, test evidence and a colleague who can rerun the workflow.”
+
+## Optional two-minute backend demonstration
+
+Open the full local workspace on port 4174 and sign in. Local accounts are clearly labelled simulations; hosted accounts use platform authentication.
+
+1. In Trial studio, click **Save synthetic draft**. Show the saved source fields and output.
+2. Submit the draft for review. As owner/reviewer, check the facts, acknowledge the review and approve. Show the recorded actor and version.
+3. Edit and save a new version: approval resets. Explain that the server enforces permissions and rejects stale edits.
+4. Save a business-case scenario and a priority review. Refresh to demonstrate persistence.
+5. In Trial results, record a labelled synthetic observation. Explain that assisted total includes checking, and that unsuccessful cases must remain in the evidence.
+6. Open AI assistant. It can explain assumptions and discuss a selected draft; it cannot send a message or approve anything.
+
+**AI status at verification:** secure local key setup succeeded, but the provider returned exhausted API credits. Do not claim a successful live response until billing is enabled and a reply has been tested. The hosted environment needs its own server secret; the local key is never bundled or pushed.
+
+Suggested wording: “The backend makes the process traceable. We can revisit what was written, who reviewed it, which assumptions drove the recommendation and what a trial actually measured. The assistant helps with explanation and drafting; people retain the decision.”
 
 ## Savings calculation to keep ready
 
@@ -118,7 +133,7 @@ Staff salaries generally continue to be paid. The immediate benefit is time avai
 
 ## Be precise if asked
 
-**Is this live AI?** “No. This version uses deterministic templates and validation so the workflow is repeatable. I would evaluate an approved model or an existing product with the same inputs and quality criteria.”
+**Is this live AI?** “The Trial studio uses repeatable templates. The separate assistant uses an OpenAI API integration with supplied project context and a selected synthetic draft. At verification its account had no API credits, so live response generation remains unverified. I would evaluate output quality before any operational use.”
 
 **Why did you build it if the recommendation is existing tools first?** “The prototype makes requirements and controls tangible. It is a conversation and evaluation aid, not evidence that a custom production system should be funded.”
 
@@ -132,7 +147,7 @@ Staff salaries generally continue to be paid. The immediate benefit is time avai
 
 **Can it connect to JobAdder?** “There is no connection here. First I would confirm entitlements, approved access, API or connector capability, record permissions and an owner. Any first integration trial should use approved read-only or supervised access.”
 
-**Did you build this without assistance?** Describe your actual process truthfully: AI-assisted research and implementation, plus your own review, understanding and presentation. Do not imply independent engineering experience you cannot demonstrate. Be ready to explain the three layers: scenario data, calculation/validation engine, and interface.
+**Did you build this without assistance?** Describe your actual process truthfully: AI-assisted research and implementation, plus your own review, understanding and presentation. Do not imply independent engineering experience you cannot demonstrate. Be ready to explain the interface, shared calculation/validation engine, authenticated API, SQL database and server-side AI call.
 
 ## Before the interview
 

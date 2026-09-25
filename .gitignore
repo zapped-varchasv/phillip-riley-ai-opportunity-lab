@@ -5,3 +5,8 @@ node_modules/
 .env*
 !\.env.example
 qa/
+dist/server/
+dist/client/
+dist/.openai/
+.local/
+.dev.vars*

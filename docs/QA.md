@@ -4,9 +4,9 @@ Checked on 25 September 2026 in the local Windows workspace.
 
 ## Automated checks
 
-`npm run check` passed for all three JavaScript source files.
+`npm run check` passed for frontend, Worker and local/build scripts. `npm run build` produced the Worker, client assets and schema migration package. The production dependency audit found zero vulnerabilities.
 
-`npm test` passed **11 tests** covering required brief fields, absent contact permission, unknown candidate status, invalid pipeline counts, zero cohorts, an independently calculated cost baseline, review overhead, zero adoption/users/hourly value, opportunity data consistency and changed source fields.
+The original **11 engine tests** cover required brief fields, contact permission, status, pipeline integrity and commercial arithmetic. **14 backend tests** additionally cover identity, cross-site requests, cross-user access, role assignment, approval lifecycle, stale writes, server recalculation, private measurements and scenarios, persistence after reopening SQL, AI configuration, authorised context, quotas and provider credit-exhaustion errors.
 
 The Windows sandbox initially prevented the Node test runner from spawning (`EPERM`). Running the same checks with the required process permission completed successfully; this was an environment restriction, not a failing business assertion.
 
@@ -29,6 +29,14 @@ Verified in Chrome against the local static server:
 - No browser console errors were recorded during the checked workflows.
 - Desktop layout was visually inspected. At 390px mobile width the logo loaded, the layout stacked and the document did not overflow horizontally; navigation scrolls within its own bar.
 
+## Saved workspace verification
+
+In Chrome on the local server, an author saved and submitted a synthetic BESS draft. Refresh preserved the submission. A separate simulated reviewer approved it; history showed both actors and all three versions. Saved business-case assumptions reopened, a priority review saved, and a labelled synthetic measurement persisted with a correctly calculated 40% reduction (10 to 6 minutes). These are test fixtures, not observed PRG results.
+
+A browser check caught a number-input step mismatch in the trial form; it was fixed and the observation then saved successfully. The API key was securely provisioned locally. A real OpenAI request returned HTTP 429 with `credit_balance_exhausted` and `insufficient_quota`. This proves the request reached the provider, not that generation or model quality was verified. Successful-response tests use an explicitly mocked transport.
+
 ## Limits of this verification
 
-This is a functional and visual check of a synthetic portfolio app, not a security, accessibility, fairness or production-readiness audit. No live integration, language-model quality evaluation, operational pilot or PRG user acceptance test has occurred. No claim is made that a front-end review checkbox enforces production access control.
+This is a functional check of a synthetic portfolio app, not an independent security, accessibility, fairness or production-readiness audit. No PRG integration, successful live language-model evaluation, operational pilot or PRG user acceptance test has occurred. The offline checkbox is illustrative; saved approvals have tested backend permission/version checks. Hosted runtime validation is distinct from local SQLite testing.
+
+Development dependency audit: four moderate advisories remain in the Drizzle Kit → esbuild development-only chain (GHSA-67mh-4wv8-2f99). The affected esbuild web server is not used or deployed. The runtime dependency audit is clean; do not run an exposed esbuild development server.

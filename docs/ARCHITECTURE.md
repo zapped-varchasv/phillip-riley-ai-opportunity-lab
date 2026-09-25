@@ -1,6 +1,6 @@
 # How the project works
 
-The app is deliberately small and inspectable. It runs entirely in the browser, with no server-side application, database, external model call, analytics or secret key.
+The app has two modes: the original offline workflow simulator, and a saved workspace backed by a Worker API and SQL database. The optional assistant calls OpenAI from the server. It is an independent synthetic portfolio, with no PRG systems connected.
 
 ```mermaid
 flowchart LR
@@ -25,7 +25,17 @@ flowchart LR
 
 `data.js` and `engine.js` expose browser globals and CommonJS exports so the same business functions can be tested with Node without a build or dependency installation. User-entered values are HTML-escaped before rendering. Downloads use browser Blob URLs.
 
-## State and trust boundaries
+## Saved workspace architecture
+
+Browser → authenticated Worker API → D1 SQL database. For an assistant request only, the Worker sends permitted context to the OpenAI Responses API and saves a successful reply in SQL. Local development uses the same handler with a SQLite adapter and explicitly simulated identities.
+
+Eight tables store users, drafts, events, business cases, measurements, priority snapshots, assistant messages and daily request counters. Prepared SQL statements bind user inputs. Version-guarded updates and history inserts run in a transaction. All mutating routes require same-origin JSON requests and a custom header. Request bodies are bounded; API responses are private and uncached.
+
+Members access their own drafts. Reviewers and the owner can inspect workspace drafts and approve submitted versions. Only an author can edit their own draft. Editing resets approval; a stale version is rejected. Approved exports are authorised by the server. The owner assigns reviewer/member roles; clients cannot grant themselves administrator access. Personal scenarios, measurements and conversations remain private to their owner.
+
+The assistant receives supplied public source notes, the opportunity hypotheses, up to 12 recent messages and an explicitly selected accessible draft. It has no tools or record-writing authority. Consent, request limits and a bounded response apply before a provider call. Model instructions are guidance, not a guarantee of factual correctness. See [setup and operating guide](SETUP.md).
+
+## Offline mode state and trust boundaries
 
 Inputs and session activity live in memory. Refresh resets them. Exporting explicitly creates a local file; it does not email, upload or update a record. Evidence labels identify synthetic fixtures, not authenticated operational documents. The session activity list is useful for demonstration, not immutable audit evidence.
 
@@ -37,11 +47,11 @@ The review checkbox is a UX control only. A person with browser developer tools 
 |---|---|---|
 | Recruitment system | Confirm licensed functionality first; then approved scoped/read-only access where needed | No connection |
 | Communication | Trusted permission/status records; draft-only outputs; human approval | Fictional input field only |
-| AI provider | Approved account, contractual/privacy review, scoped data, controlled prompts and structured output checks | No model calls |
+| AI provider | Account credits, approved data and model evaluation | Server integration implemented; real response blocked by exhausted API credits at verification |
 | Knowledge | Approved source repository with permissions, citations, freshness and refusal when evidence is absent | Not implemented |
 | Automation | Record identity, deduplication, retries, rate limits, approval state and failure handling | Not implemented |
-| Audit | Server-side actor identity, input/version provenance and immutable release events | In-memory demonstration only |
-| Deployment | Authentication, access control, secrets management, monitoring, retention and support ownership | Static portfolio hosting only |
+| Audit | Retention, tamper resistance and independent review | SQL actor/version snapshots implemented; not immutable against administrators |
+| Deployment | Monitoring, retention and support ownership | Worker/D1 packaging and platform identity implemented; production operations still require review |
 
 The first live connection should follow PRG approval and the scope agreed with the supervisor. A proposed architecture is not evidence that a particular vendor API, plan or permission is available.
 

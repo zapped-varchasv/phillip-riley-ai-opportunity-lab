@@ -19,19 +19,34 @@ The recommendation is simple: **understand the work, check what the business alr
 | Understand the delivery and handover | [Delivery plan](docs/DELIVERY_PLAN.md) |
 | Inspect the system and integration boundaries | [Architecture](docs/ARCHITECTURE.md) |
 
-## Run the demo
+## Run the project
 
-**No install, API key or account is required.** Download the repository using **Code → Download ZIP**, extract it, and open [`dist/index.html`](dist/index.html) in a modern browser. All assets are included; the demo also works offline. Only external research and repository links need internet access.
+**Version 2 adds a backend and SQL database:** saved drafts, versioned approvals, user roles, saved cost scenarios, priority reviews, trial observations and an OpenAI assistant with private conversation history. The original offline demo remains available.
 
-For developers with Node.js 20 or later:
+For the full local workspace, install Node.js **22.13 or later**, then:
 
 ```sh
 git clone https://github.com/zapped-varchasv/phillip-riley-ai-opportunity-lab.git
 cd phillip-riley-ai-opportunity-lab
+npm ci
 npm start
 ```
 
-Open `http://127.0.0.1:4173`. There are no third-party runtime packages and no `npm install` step.
+Open `http://127.0.0.1:4174`. Local sign-in simulates author, reviewer and owner accounts; it is strictly a development feature. Saved data is stored in ignored `.local/prg.sqlite`. The hosted Worker uses platform authentication and a D1 SQL database. See [setup and operating guide](docs/SETUP.md).
+
+The AI assistant needs a server-side OpenAI API key and API credits. Local startup reads an ignored `.env.local`. A configured key does not prove that the account has credits or model access. At verification, the real API returned `credit_balance_exhausted`; no successful model answer or model-quality evaluation is claimed.
+
+### Offline backup
+
+**No install, API key or account is required.** Download the repository using **Code → Download ZIP**, extract it, and open [`dist/index.html`](dist/index.html) in a modern browser. All assets are included; the demo also works offline. Only external research and repository links need internet access.
+
+To serve only the original offline pages:
+
+```sh
+npm run start:offline
+```
+
+Open `http://127.0.0.1:4173`. Saved workspace and AI features require the full server above.
 
 ## What works
 
@@ -44,7 +59,15 @@ Open `http://127.0.0.1:4173`. There are no third-party runtime packages and no `
 | **Business case** | Adjust team size, frequency, review time, costs and adoption; export the options paper | Compares existing tools, general AI, specialist software and a tailored solution on the same basis |
 | **Roadmap and research** | View decision gates, handover needs, sources and discovery questions | Shows how a small prototype becomes a supervised business project |
 
-The trial engine uses **deterministic templates and validation rules**. It does not call a language model. This keeps the interview demonstration repeatable and makes the proposed controls easy to inspect. A real trial would compare these steps against approved tools or approved model outputs using the same evaluation set.
+The trial engine uses **deterministic templates and validation rules**. The separate **AI assistant** calls OpenAI from the server to explain assumptions, plan trials and discuss a selected synthetic draft. It cannot send messages, approve work or make hiring decisions. Responses require human review.
+
+| Saved feature | Business purpose |
+|---|---|
+| Drafts and review history | Keep source facts, output, actor and versions together; edits invalidate approval |
+| Member, reviewer and owner roles | Enforce draft access and approval permissions on the server |
+| Saved business cases and priority reviews | Preserve the reasoning behind changing assumptions and recommendations |
+| Trial observations | Record total task time, review, corrections and failed cases before claiming value |
+| AI assistant | Help staff understand the proposal and improve drafts using supplied project context |
 
 ## Why this is specific to Phillip Riley
 
@@ -71,9 +94,10 @@ npm test
 
 Tests cover missing information, absent permission, pipeline integrity, zero cohorts, independent cost calculations, review burden, zero adoption and data consistency. Browser acceptance checks are recorded in [QA](docs/QA.md).
 
-- Enter synthetic information only. Input stays in browser memory and disappears on refresh.
+- Enter synthetic information only. Offline trial inputs stay in browser memory. Explicitly saved records and successful assistant conversations persist in SQL.
 - Exports are local files. No email is sent and no live record changes.
-- Review controls illustrate a workflow; browser code is not an enforceable production security boundary.
+- The offline review checkbox is illustrative. Saved-workspace approvals and exports are checked by the backend against identity, role and current version.
+- Assistant requests send the question, recent conversation, public project notes and an explicitly selected draft to OpenAI. The API key is never sent to the browser. No real candidate or client data is authorised.
 - No candidate scoring, screening decision, legal advice or autonomous outreach is implemented.
 - Logo and observed navy/green colour references identify the subject of the portfolio; there is no endorsement claim.
 
@@ -87,7 +111,12 @@ dist/                   Offline-ready app and included brand asset
 docs/                   Stakeholder, research, trials and handover guides
 tests/                  Business-rule and calculation tests
 scripts/serve.cjs       Dependency-free local HTTP server
-.openai/hosting.json     Static hosting configuration; no credentials
+server/                 Worker API, permissions and AI provider integration
+db/ and drizzle/        SQL schema and versioned schema-only migrations
+dist/workspace.js       Saved workspace, assistant and observations UI
+scripts/dev-server.mjs  Local SQL server and development-only account simulation
+scripts/build.mjs       Worker bundle and asset packaging
+.openai/hosting.json     Site identifier and logical SQL binding; no credentials
 ```
 
 Original code is [MIT licensed](LICENSE). The Phillip Riley logo is excluded from that licence; see [asset attribution](docs/ASSETS.md).
