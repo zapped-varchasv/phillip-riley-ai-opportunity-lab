@@ -18,6 +18,8 @@ The integration uses the [OpenAI Responses API](https://developers.openai.com/ap
 
 The frontend remains plain HTML, CSS and JavaScript. `npm run build` bundles the API into a Cloudflare-compatible Worker and copies assets and migrations. `.openai/hosting.json` declares the logical D1 binding `DB`. The platform applies the committed schema migration at deployment. No runtime schema creation or sample-data seeding runs in the hosted Worker.
 
+Package through the Sites workflow. The deployment archive must include `dist/.openai/hosting.json` and `dist/.openai/drizzle/`, alongside `dist/server/` and `dist/client/`. Putting migrations only at the archive root is insufficient. Before publishing, run `node scripts/check-package.mjs <archive-path>`. After deployment, inspect the live database overview: all eight application tables must exist. A successful Worker upload alone does not verify database readiness.
+
 Configure `OWNER_EMAIL` and `OPENAI_API_KEY` as secret server environment values and `OPENAI_MODEL` as a normal value. Local env files are excluded from source and deployment archives. A local credential is not automatically a hosted secret. The hosted assistant clearly shows when its connection is absent.
 
 Hosted accounts use platform sign-in. The server trusts identity headers supplied by the hosting gateway; do not expose this Worker behind an untrusted proxy that allows callers to forge those headers. The existing Site stays private to its owner. Platform sharing and application roles are separate controls. A permitted visitor starts as a member; the owner can grant reviewer access after the person first signs in.
