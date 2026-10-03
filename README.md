@@ -6,7 +6,9 @@ Recruitment workflows, enrichment evidence and platform handoffs in one place fo
 
 This public repository now contains the current workspace application source, including the staff guide, work board, enrichment review, platform hub and database migrations. It replaces the earlier portfolio interface.
 
-**The replacement hosting address is not live yet.** The requested public name is **PRG Workspace**. A company domain can be attached later. Hosting account setup, production authentication and database migration must be completed before moving the existing application.
+**Public website: [PRG Workspace](https://prg-workspace.prg-team.workers.dev).** The website address contains neither a personal name nor ChatGPT branding. A company-approved domain can be attached later.
+
+The repository is connected to Cloudflare and the database schema is deployed. **Staff sign-in is pending**, so the new site currently supports public browsing. Saved cases, approvals and measurements require activation of Cloudflare Access and configuration of staff permissions. Existing records on the previous host have not been migrated.
 
 GitHub stores the source and runs verification. GitHub Pages alone cannot run this app's database or authenticated API. See [Hosting migration](docs/HOSTING_MIGRATION.md) for the current blocker and deployment checklist.
 
@@ -47,7 +49,7 @@ Open `http://127.0.0.1:4174`. The localhost adapter simulates sign-in roles and 
 
 ## Hosting and information handling
 
-The existing Site runtime expects its authenticated hosting gateway. The new Cloudflare entrypoint verifies Access tokens and rejects unauthenticated API calls. Use `npm run build:cloudflare` with a provisioned D1 database ID and follow the hosting migration guide to configure staff sign-in before enabling saved workflows. All 50 automated checks pass; the new host still needs deployment and end-to-end verification.
+The existing Site runtime expects its authenticated hosting gateway. The new Cloudflare entrypoint verifies Access tokens and rejects unauthenticated API calls. Use `npm run build:cloudflare` with a provisioned D1 database ID and follow the hosting migration guide to configure staff sign-in before enabling saved workflows. All 50 automated checks pass; public deployment is verified; authenticated end-to-end checks remain pending Access setup.
 
 Original company documents, credentials, account lists, saved records and local databases are excluded. Repository code includes the workflow summaries already displayed in the public prototype. Store actual operational records only in approved company systems.
 

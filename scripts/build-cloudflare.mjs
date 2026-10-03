@@ -12,5 +12,5 @@ for(const file of ['index.html','enrichment.js']){
  if(file==='enrichment.js')text=text.replace(' · <a href="#guide">Staff guide</a>',' · <a href="#guide">Staff guide</a> · <a href="/cdn-cgi/access/logout">Sign out</a>');
  await writeFile(path,text);
 }
-await writeFile('.cloudflare/wrangler.json',JSON.stringify({name:'prg-workspace',main:'worker.js',compatibility_date:'2026-10-03',workers_dev:true,keep_vars:true,assets:{directory:'client',binding:'ASSETS',run_worker_first:['/api/*','/auth/*']},d1_databases:[{binding:'DB',database_name:'prg-workspace',database_id:databaseId,migrations_dir:'../drizzle'}]},null,2));
+await writeFile('.cloudflare/wrangler.json',JSON.stringify({name:'prg-workspace',main:'worker.js',compatibility_date:'2026-10-03',workers_dev:true,preview_urls:false,keep_vars:true,assets:{directory:'client',binding:'ASSETS',run_worker_first:['/api/*','/auth/*']},d1_databases:[{binding:'DB',database_name:'prg-workspace',database_id:databaseId,migrations_dir:'../drizzle'}]},null,2));
 console.log('Cloudflare build complete. Configure Access and runtime secrets before enabling saved staff workflows.');

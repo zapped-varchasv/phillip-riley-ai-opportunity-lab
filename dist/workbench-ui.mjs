@@ -10,7 +10,7 @@ export function createWorkbench({state,api,esc,toast,modal,download,render,detai
  const header=(title,sub,actions='')=>`<div class="page-heading"><div><p class="eyebrow">PHILLIP RILEY / WORKSPACE</p><h1>${title}</h1><p>${sub}</p></div><div class="actions">${actions}</div></div>`;
  const notice=()=>`<div class="integration-note"><span class="mode-dot"></span><div><strong>Rehearsal workspace.</strong> Use fictional case details. Work items, notes and reviews are saved here; live platforms are not connected.</div></div>`;
  const setting=id=>ui.settings.find(s=>s.platform_id===id),selected=()=>ui.items.find(w=>w.id===ui.selected);
- const canSave=()=>state.me?true:(toast('Sign in to save your work.'),false);
+ const canSave=()=>state.me?true:(toast(state.authUnavailable?'Staff sign-in is pending setup. You can browse the public guides.':'Sign in to save your work.'),false);
  const toolsFor=w=>(stage(w)?.tools||['jobadder']).map(platformById);
  function platformButtons(ids){return `<div class="stage-platforms">${ids.map(id=>{const p=platformById(id),s=setting(id)?.payload;return s?.workspaceUrl?`<a class="platform-link" href="${esc(s.workspaceUrl)}" target="_blank" rel="noopener noreferrer">${mark(p)} ${p.name} ↗</a>`:button(mark(p)+' '+p.name,'platform',`data-id="${id}"`,'platform-link');}).join('')}</div>`;}
  const progress=w=>`<div class="progress-track" aria-label="${w.stage} of ${journeys[w.kind].steps.length} stages complete"><span style="width:${w.stage/journeys[w.kind].steps.length*100}%"></span></div>`;

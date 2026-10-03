@@ -4,11 +4,11 @@ Instructions for the current prototype as at 3 October 2026. Start with fictiona
 
 ## Choose the right version
 
-- **Current workspace:** [Open PRG One Workspace](https://prg.varchasvgupta0808.chatgpt.site). Public viewing was enabled on 3 October 2026. Sign in to use saved features; account and reviewer permissions still apply.
-- **Public repository code:** the current recruitment workspace source, including the database-backed workflow and staff guide. A replacement hosting address is pending; see [Hosting migration](HOSTING_MIGRATION.md).
+- **Current workspace:** [Open PRG One Workspace](https://prg-workspace.prg-team.workers.dev). The replacement public site is live. Staff sign-in is pending, so saved features are unavailable on the new host until access setup is complete. Existing records have not moved from the previous host.
+- **Public repository code:** the current recruitment workspace source, including the database-backed workflow and staff guide. The replacement public address is live; see [Hosting migration](HOSTING_MIGRATION.md).
 - **Current progress and requests:** [Stakeholder progress brief](STAKEHOLDER_PROGRESS.md) and [implementation checklist](IMPLEMENTATION_CHECKLIST.md).
 
-## A first demonstration
+## Saved-workflow demonstration (after staff sign-in is enabled)
 
 This sequence uses fictional examples and does not need a paid provider connection.
 

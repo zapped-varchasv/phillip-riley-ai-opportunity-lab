@@ -9,7 +9,10 @@ export function createCloudflareWorker(keySetFactory=createRemoteJWKSet){
   const url=new URL(request.url);
   if(!url.pathname.startsWith('/api/')&&!url.pathname.startsWith('/auth/'))return env.ASSETS.fetch(request);
   const issuer=env.ACCESS_ISSUER,audience=env.ACCESS_AUDIENCE;
-  if(typeof issuer!=='string'||!/^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com$/.test(issuer)||!audience)return error(503,'Staff sign-in is not configured yet. Public guides remain available.');
+  if(typeof issuer!=='string'||!/^https:\/\/[a-z0-9-]+\.cloudflareaccess\.com$/.test(issuer)||!audience){
+   if(url.pathname==='/auth/login')return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Staff access | Phillip Riley</title><body style="font-family:system-ui;max-width:640px;margin:12vh auto;padding:24px;line-height:1.7"><h1>Staff sign-in is being set up</h1><p>The public workspace is available to explore. Saving cases, reviews and measurements needs staff access to be configured first.</p><p><a href="/#home">Return to the workspace</a> · <a href="/#guide">Read the staff guide</a></p></body></html>',{status:503,headers:{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
+   return error(503,'Staff sign-in is not configured yet. Public guides remain available.');
+  }
   const token=request.headers.get('cf-access-jwt-assertion');
   if(!token)return error(401,'Sign in with your approved staff account.');
   let claims;

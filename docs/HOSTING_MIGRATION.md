@@ -1,12 +1,16 @@
 # Hosting migration: PRG Workspace
 
-Status: 3 October 2026. Repository preparation is complete; replacement hosting is not yet deployed. The Cloudflare adapter and build are implemented and covered by 50 passing tests, including five authentication checks.
+Status: 4 October 2026. The current source is pushed to GitHub and the replacement public website is deployed at [PRG Workspace](https://prg-workspace.prg-team.workers.dev). The Cloudflare adapter and build are implemented and covered by 50 passing tests, including five authentication checks.
 
 ## What is being moved
 
 The repository contains the current recruitment workspace UI, Worker API, tests and three database migrations. The public app uses fictional examples; original documents, credentials and saved databases are not committed.
 
-The proposed product name is **PRG Workspace**. A provider subdomain can remove the personal name and `chatgpt.site` from the website address. The exact address must be confirmed by the hosting provider; no new hostname has been reserved yet. A company-approved custom domain can be added later.
+The product name is **PRG Workspace**. Cloudflare has assigned `prg-workspace.prg-team.workers.dev`, with no personal name or ChatGPT branding in the address. A company-approved custom domain can be added later.
+
+Completed: GitHub integration, build commands, public hostname, D1 database creation with an Oceania location hint, all three schema migrations and public deployment. The previous host and its saved records remain intact.
+
+Pending: Cloudflare Access activation, identity-provider setup, runtime issuer/audience and administrator settings, and authenticated end-to-end verification. Cloudflare currently asks for billing details, acceptance of terms and overage authorisation even for its Zero Trust Free plan. No billing terms were accepted by the agent. Public guides work; saved staff workflows stay locked.
 
 ## Why GitHub Pages is insufficient
 
@@ -19,16 +23,15 @@ GitHub Pages serves static HTML, CSS and JavaScript. This application also needs
 3. Provision a D1 database in the approved location. Bind it as `DB`. Apply migrations 0000, 0001 and 0002 in order. Never overwrite an applied migration.
 4. Configure a Cloudflare Access application for the new hostname at `/api/*` and `/auth/*`, leaving the public UI available. The new `server/cloudflare.mjs` adapter strips caller-supplied identity headers and validates RS256 Access tokens against issuer, audience and expiry before passing identity into the app. Set `ACCESS_ISSUER` and `ACCESS_AUDIENCE` from that application. Missing configuration fails closed.
 5. The Cloudflare build replaces sign-in routes with `/auth/login` and adds Access logout. Configure the initial Access allowlist and `OWNER_EMAIL` in runtime settings; confirm new staff membership separately. Do not commit account lists or secrets.
-6. Set build environment variable `CLOUDFLARE_D1_DATABASE_ID` to the provisioned D1 ID. Use build command `npm run build:cloudflare` and deploy command `npm run deploy:cloudflare`. The build creates `.cloudflare/wrangler.json` with the correct assets, Worker entrypoint and D1 binding. Use `npx wrangler d1 migrations apply prg-workspace --remote --config .cloudflare/wrangler.json` once the build has generated the configuration. `npm run build` remains the existing Site build.
+6. Set build environment variable `CLOUDFLARE_D1_DATABASE_ID` to the provisioned D1 ID. Use build command `npm run build:cloudflare` and deploy command `npm run deploy:cloudflare`. The build creates `.cloudflare/wrangler.json` with the correct assets, Worker entrypoint and D1 binding. Use `npx wrangler d1 migrations apply prg-workspace --remote --config .cloudflare/wrangler.json` once the build has generated the configuration. The deployment script now runs this migration command automatically before each publish, and Wrangler skips previously applied migrations. `npm run build` remains the existing Site build.
 7. Decide whether the new pilot starts empty or needs existing saved records. If records are migrated, export privately, back up first, map identities explicitly and verify ownership, review history and counts. Repository publication does not migrate database contents.
 8. Verify public pages, sign-in, forbidden anonymous access, cross-account isolation, reviewer permissions, persistence, exports and rollback. Then publish the verified new URL and update repository links.
 9. Keep the existing service available during cutover. Retire it only after the new service is verified and its record-migration decision is complete.
 
 ## Still required
 
-- Hosting-to-GitHub connection and available subdomain.
 - Production identity provider and staff membership rules.
-- Live Access policy, runtime settings, database binding and migration execution.
+- Live Access policy and runtime issuer/audience/administrator settings.
 - Existing-record migration decision and end-to-end testing on the new host.
 - Company approval before real candidate or client data is used.
 
@@ -42,4 +45,4 @@ Do not publish the current Worker directly to an unprotected public endpoint. A 
 
 ## Validation performed
 
-All 50 tests pass. The new authentication tests reject forged identity headers, invalid signatures, expired tokens, wrong audiences and issuers, and identities without an email. They also verify owner derivation and a fixed post-login redirect. The Cloudflare bundle was built locally using an explicitly fictitious database ID only for build validation; this did not provision or deploy a database. Production dependency audit reports no known vulnerabilities.
+All 50 tests pass. The new authentication tests reject forged identity headers, invalid signatures, expired tokens, wrong audiences and issuers, and identities without an email. They also verify owner derivation and a fixed post-login redirect. The Cloudflare bundle passed a Wrangler dry run with the actual database binding. The GitHub-connected deployment then applied migrations 0000–0002 and completed successfully. Public pages were inspected in a browser. Production dependency audit reports no known vulnerabilities.
