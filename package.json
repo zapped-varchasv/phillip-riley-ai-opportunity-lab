@@ -2,7 +2,7 @@
   "name": "phillip-riley-ai-opportunity-lab",
   "version": "2.0.0",
   "private": true,
-  "description": "Independent interview portfolio with synthetic recruitment workflow trials",
+  "description": "Public research prototype with synthetic recruitment workflow trials",
   "scripts": {
     "start": "node --experimental-sqlite scripts/dev-server.mjs",
     "start:offline": "node scripts/serve.cjs",

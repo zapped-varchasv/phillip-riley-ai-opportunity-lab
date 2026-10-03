@@ -1,46 +1,45 @@
-# PRG Opportunity Lab
+# PRG One Workspace
 
-## Current project update
+Project documentation and public prototype source by Varchasv Gupta for recruitment workflow and AI enrichment work.
 
-**3 October 2026 — PRG One Workspace:** the project has progressed to a private recruitment and enrichment workbench. Start with the documents below for its current status, how to use it, and what is required for live operation.
-
-| Need | Document |
-|---|---|
-| Understand progress and the next stakeholder decisions | [Current stakeholder brief](docs/STAKEHOLDER_PROGRESS.md) |
-| Download a printable document for a meeting | [Stakeholder brief as PDF](docs/PRG_Stakeholder_Progress.pdf) |
-| Follow the current workspace instructions | [User guide](docs/USER_GUIDE.md) |
-| Collect requirements and track readiness | [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) |
-
-The current Site is private and uses fictional rehearsal data. Live integrations and live AI are not configured. **This public repository retains the earlier portfolio source code described below; the current private workbench source is maintained separately.** This is a documentation update, not a release of that private source. Cloning this repository does not run the current workbench. Company documents, private configuration, credentials and operational records are excluded.
-
-To use these documents, read the stakeholder brief first, use the user guide for a demonstration, then copy the blank implementation checklist into an approved private project space. Record confidential answers there, not in public GitHub issues. The current brief supersedes older interview material for project-status reporting.
-
-## Earlier public portfolio application
-
-### Practical AI for renewable-energy recruitment
-
-**An independent interview portfolio by Varchasv Gupta.** A working demonstration of how I would discover, test and explain useful AI opportunities for Phillip Riley.
-
-The recommendation is simple: **understand the work, check what the business already owns, run small trials, and invest only where the evidence supports it.** This project makes that approach tangible with three interactive workflow demos, sixteen ranked opportunities and an editable commercial comparison.
-
-> Synthetic data only. This is not an official Phillip Riley product, an internal systems audit or a production AI service. No operational access, live pilot or measured savings are claimed. The supplied role document is not published here. Brand assets remain the property of their owners.
+The current private workbench brings a case's next action, enrichment evidence, review decisions, notes and handoff into one place. The intended benefit is less switching between tools and less repeated administration, while keeping JobAdder as the main recruitment record.
 
 ## Start here
 
-| You want to… | Open this |
+| You need to | Read |
 |---|---|
-| Understand the proposal in plain English | [Stakeholder guide](docs/STAKEHOLDER_GUIDE.md) |
-| Present it in five minutes | [Interview walkthrough](docs/INTERVIEW_WALKTHROUGH.md) |
-| Check what research supports it | [Research and assumptions](docs/RESEARCH.md) |
-| See how a real pilot would be measured | [Trial playbook](docs/TRIAL_PLAYBOOK.md) |
-| Understand the delivery and handover | [Delivery plan](docs/DELIVERY_PLAN.md) |
-| Inspect the system and integration boundaries | [Architecture](docs/ARCHITECTURE.md) |
+| Understand progress, remaining work and stakeholder decisions | [Stakeholder progress brief](docs/STAKEHOLDER_PROGRESS.md) |
+| Download a printable meeting document | [Five-page stakeholder PDF](docs/PRG_Stakeholder_Progress.pdf) |
+| Learn how to use the current workspace | [User guide](docs/USER_GUIDE.md) |
+| Collect requirements and track readiness | [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) |
 
-## Run the project
+Read the progress brief first, use the user guide for a demonstration, then copy the blank implementation checklist into an approved private project space. Record confidential answers there, not in public GitHub issues.
 
-**Version 2 adds a backend and SQL database:** saved drafts, versioned approvals, user roles, saved cost scenarios, priority reviews, trial observations and an OpenAI assistant with private conversation history. The original offline demo remains available.
+## Current status
 
-For the full local workspace, install Node.js **22.13 or later**, then:
+The private prototype includes saved cases, three workflow types, linked enrichment reviews, checkpoints, notes, handoff exports, a platform hub and search. Its 45 automated checks and desktop/mobile review establish prototype behaviour, not production readiness or measured business savings.
+
+**Live integrations and live AI are not configured in the current workbench.** It uses fictional rehearsal data. Platform shortcuts and setup checklists do not synchronise records or establish API access.
+
+[Open the private workspace](https://prg-opportunity-lab-varchasv.varchasvgupta0808.chatgpt.site). An authorised account is required; repository access does not grant Site access.
+
+## What this repository contains
+
+**The documentation above describes the current private workbench. The application source in this public repository is an earlier prototype.** The current workbench source is maintained separately because it includes internal workflow summaries. Cloning this repository does not run the current private Site.
+
+The earlier source remains available for technical reference. Its speculative opportunity scores, cost examples and workflow demonstrations are not current project plans or measured results. Use the current stakeholder brief and implementation checklist for delivery decisions.
+
+| Technical reference | Scope |
+|---|---|
+| [Setup](docs/SETUP.md) | Running and configuring the earlier public application |
+| [Architecture](docs/ARCHITECTURE.md) | Public prototype components and integration boundaries |
+| [Validation notes](docs/QA.md) | Checks performed on the earlier public application |
+| [Public research](docs/RESEARCH.md) | Dated public sources and assumptions |
+| [Asset attribution](docs/ASSETS.md) | Logo ownership and branding references |
+
+## Run the earlier public prototype
+
+Use Node.js 22.13 or later:
 
 ```sh
 git clone https://github.com/zapped-varchasv/phillip-riley-ai-opportunity-lab.git
@@ -49,91 +48,10 @@ npm ci
 npm start
 ```
 
-Open `http://127.0.0.1:4174`. Local sign-in simulates author, reviewer and owner accounts; it is strictly a development feature. Saved data is stored in ignored `.local/prg.sqlite`. The hosted Worker uses platform authentication and a D1 SQL database. See [setup and operating guide](docs/SETUP.md).
+Open `http://127.0.0.1:4174`. Local sign-in simulates development accounts and records persist in ignored `.local/prg.sqlite`. Follow the [setup guide](docs/SETUP.md) for details. The optional assistant in this earlier code requires server-side API configuration and credits; it is separate from the current workbench's capabilities.
 
-The AI assistant needs a server-side OpenAI API key and API credits. Local startup reads an ignored `.env.local`. A configured key does not prove that the account has credits or model access. At verification, the real API returned `credit_balance_exhausted`; no successful model answer or model-quality evaluation is claimed.
+## Information handling
 
-### Offline backup
+Company documents, private configuration, credentials and operational records are excluded. Use fictional examples only. This repository is not an operational ATS or a place to store candidate or client information.
 
-**No install, API key or account is required.** Download the repository using **Code → Download ZIP**, extract it, and open [`dist/index.html`](dist/index.html) in a modern browser. All assets are included; the demo also works offline. Only external research and repository links need internet access.
-
-To serve only the original offline pages:
-
-```sh
-npm run start:offline
-```
-
-Open `http://127.0.0.1:4173`. Saved workspace and AI features require the full server above.
-
-## What works
-
-| Demo | What the stakeholder sees | Why it matters |
-|---|---|---|
-| **Brief to advert** | Edit a fictional BESS or wind role, generate a draft, inspect source fields, and hold release if required information is absent | Shows consistent drafting without inventing salary or role facts |
-| **Candidate care** | Draft a status update or hold the workflow when contact permission is absent | Demonstrates a useful service improvement with explicit human ownership |
-| **Client pulse** | Turn cumulative pipeline counts into a client update; reject inconsistent numbers | Connects administration to client communication and agreed next actions |
-| **Opportunity register** | Search, filter, sort, explain and export 16 proposed opportunities | Makes prioritisation inspectable rather than presenting an unexplained AI wish list |
-| **Business case** | Adjust team size, frequency, review time, costs and adoption; export the options paper | Compares existing tools, general AI, specialist software and a tailored solution on the same basis |
-| **Roadmap and research** | View decision gates, handover needs, sources and discovery questions | Shows how a small prototype becomes a supervised business project |
-
-The trial engine uses **deterministic templates and validation rules**. The separate **AI assistant** calls OpenAI from the server to explain assumptions, plan trials and discuss a selected synthetic draft. It cannot send messages, approve work or make hiring decisions. Responses require human review.
-
-| Saved feature | Business purpose |
-|---|---|
-| Drafts and review history | Keep source facts, output, actor and versions together; edits invalidate approval |
-| Member, reviewer and owner roles | Enforce draft access and approval permissions on the server |
-| Saved business cases and priority reviews | Preserve the reasoning behind changing assumptions and recommendations |
-| Trial observations | Record total task time, review, corrections and failed cases before claiming value |
-| AI assistant | Help staff understand the proposal and improve drafts using supplied project context |
-
-## Why this is specific to Phillip Riley
-
-Phillip Riley publicly describes recruitment across the renewable-energy lifecycle, including executive, permanent and contract services. Its sectors include wind, solar, energy storage and transmission. Those facts shape the fictional scenarios and the focus on client relationships, candidate communication and recruiter administration. [Company overview](https://www.phillipriley.com.au/) · [Sectors](https://www.phillipriley.com.au/industries-sectors/)
-
-JobAdder publicly advertises AI job-ad drafting and candidate summaries, and ROI-AI describes a JobAdder integration. That makes an existing-capability review a sensible starting point. **Public vendor capability does not establish PRG’s licence entitlement or actual use.** [JobAdder](https://jobadder.com/ai-recruitment-software/) · [ROI-AI](https://www.roi-ai.com/integrations/)
-
-## How value is estimated
-
-The starting scenario for the existing-tools option assumes 10 people, 8 tasks per person per week, 46 working weeks, 10 gross minutes saved, 3 review minutes and 75% adoption. At AUD 65 per hour it models:
-
-- **322 hours** of annual capacity released.
-- **AUD 5,400** year-one incremental cost and **AUD 11,400** three-year cost.
-- **AUD 15,530** year-one net capacity value.
-
-These are **illustrative inputs, not PRG figures or vendor quotations**. Released capacity is not cash savings. The interface lets stakeholders challenge every input; setting review time above gross saving correctly eliminates the benefit. The four options are alternatives and their benefits must not be added together.
-
-## Quality and boundaries
-
-```sh
-npm run check
-npm test
-```
-
-Tests cover missing information, absent permission, pipeline integrity, zero cohorts, independent cost calculations, review burden, zero adoption and data consistency. Browser acceptance checks are recorded in [QA](docs/QA.md).
-
-- Enter synthetic information only. Offline trial inputs stay in browser memory. Explicitly saved records and successful assistant conversations persist in SQL.
-- Exports are local files. No email is sent and no live record changes.
-- The offline review checkbox is illustrative. Saved-workspace approvals and exports are checked by the backend against identity, role and current version.
-- Assistant requests send the question, recent conversation, public project notes and an explicitly selected draft to OpenAI. The API key is never sent to the browser. No real candidate or client data is authorised.
-- No candidate scoring, screening decision, legal advice or autonomous outreach is implemented.
-- Logo and observed navy/green colour references identify the subject of the portfolio; there is no endorsement claim.
-
-## Repository map
-
-```text
-dist/                   Offline-ready app and included brand asset
-  app.js                Views, state, review flow and local exports
-  engine.js             Pure validation, ranking and cost calculations
-  data.js               Fictional scenarios and proposed opportunities
-docs/                   Stakeholder, research, trials and handover guides
-tests/                  Business-rule and calculation tests
-scripts/serve.cjs       Dependency-free local HTTP server
-server/                 Worker API, permissions and AI provider integration
-db/ and drizzle/        SQL schema and versioned schema-only migrations
-dist/workspace.js       Saved workspace, assistant and observations UI
-scripts/dev-server.mjs  Local SQL server and development-only account simulation
-scripts/build.mjs       Worker bundle and asset packaging
-.openai/hosting.json     Site identifier and logical SQL binding; no credentials
-```
-
-Original code is [MIT licensed](LICENSE). The Phillip Riley logo is excluded from that licence; see [asset attribution](docs/ASSETS.md).
+Original code is [MIT licensed](LICENSE). The Phillip Riley logo remains owned by its rights holder and is excluded from that licence; see [asset attribution](docs/ASSETS.md). No official product endorsement is claimed.

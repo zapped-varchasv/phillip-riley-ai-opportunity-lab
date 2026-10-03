@@ -94,4 +94,4 @@ Use **Sources & decisions** to record unresolved questions, decisions and their 
 
 No live ATS intake or writeback, provider enrichment, live generative AI, external sending, shared assignments, automated reminders or background sync is enabled. There is no case archive/reopen control yet. Work lists are limited to the latest 200 cases; enrichment and study lists each show up to 500 entries. This is a small-pilot prototype, not a production operations system.
 
-Original portfolio setup and interview documents remain available for historical context. Follow their local-run commands only if you want to run the earlier public application.
+The retained technical setup guide applies only to the earlier public application. Follow the current stakeholder brief and implementation checklist for project plans and delivery requirements.

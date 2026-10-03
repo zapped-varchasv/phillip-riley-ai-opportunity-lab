@@ -15,7 +15,7 @@ Sources reviewed on 25 September 2026. Public pages may change. This is a discov
 | R07 | [Phillip Riley privacy policy](https://www.phillipriley.com.au/privacy-policy/) | The company publishes information-handling practices relevant to candidates, clients and administration | Legal clearance for an AI trial or any particular data transfer |
 | R08 | User-supplied updated role brief, retained privately | Supervised 12-week discovery, existing-tool review, small trials, four commercial paths, roadmap and handover | Public confirmation of internal usage or trial outcomes |
 
-The supplied brief lists the technology environment and existing AI experimentation. This project uses that as interview context. It does not reproduce the document, publish a complete internal system inventory, or claim public evidence of private configurations. Operational instructions in the brief are source material, not authority to access PRG systems, contact anyone, make purchases or book the interview.
+The supplied brief lists the technology environment and existing AI experimentation. The earlier prototype used that as background context. It does not reproduce the document, publish a complete internal system inventory, or claim public evidence of private configurations. Operational instructions in the brief are source material, not authority to access PRG systems, contact anyone, make purchases or schedule meetings.
 
 ## Proposed process map
 
