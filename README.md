@@ -1,5 +1,22 @@
 # PRG Opportunity Lab
 
+## Current project update
+
+**3 October 2026 — PRG One Workspace:** the project has progressed to a private recruitment and enrichment workbench. Start with the documents below for its current status, how to use it, and what is required for live operation.
+
+| Need | Document |
+|---|---|
+| Understand progress and the next stakeholder decisions | [Current stakeholder brief](docs/STAKEHOLDER_PROGRESS.md) |
+| Download a printable document for a meeting | [Stakeholder brief as PDF](docs/PRG_Stakeholder_Progress.pdf) |
+| Follow the current workspace instructions | [User guide](docs/USER_GUIDE.md) |
+| Collect requirements and track readiness | [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) |
+
+The current Site is private and uses fictional rehearsal data. Live integrations and live AI are not configured. **This public repository retains the earlier portfolio source code described below; the current private workbench source is maintained separately.** This is a documentation update, not a release of that private source. Cloning this repository does not run the current workbench. Company documents, private configuration, credentials and operational records are excluded.
+
+To use these documents, read the stakeholder brief first, use the user guide for a demonstration, then copy the blank implementation checklist into an approved private project space. Record confidential answers there, not in public GitHub issues. The current brief supersedes older interview material for project-status reporting.
+
+## Earlier public portfolio application
+
 ### Practical AI for renewable-energy recruitment
 
 **An independent interview portfolio by Varchasv Gupta.** A working demonstration of how I would discover, test and explain useful AI opportunities for Phillip Riley.

@@ -1,3 +1,7 @@
+# Historical portfolio guide
+
+This document describes the earlier interview portfolio. For the current private workbench, use the [stakeholder progress brief](STAKEHOLDER_PROGRESS.md), [user guide](USER_GUIDE.md) and [implementation checklist](IMPLEMENTATION_CHECKLIST.md). Earlier forecasts and demonstrations are not current operational results.
+
 # What the Opportunity Lab does and why
 
 The proposal is to test whether everyday recruitment administration can become faster without reducing the quality of candidate or client service. This demonstration gives management a way to examine the workflow, question the assumptions and choose a practical next step.
