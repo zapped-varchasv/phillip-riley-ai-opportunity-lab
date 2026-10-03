@@ -1,22 +1,26 @@
 {
   "name": "phillip-riley-ai-opportunity-lab",
-  "version": "2.0.0",
+  "version": "4.0.0",
   "private": true,
-  "description": "Public research prototype with synthetic recruitment workflow trials",
+  "description": "Private PRG recruitment workbench with linked evidence, stage checklists, platform coordination and cost analysis",
   "scripts": {
     "start": "node --experimental-sqlite scripts/dev-server.mjs",
     "start:offline": "node scripts/serve.cjs",
     "build": "node scripts/build.mjs",
     "db:generate": "drizzle-kit generate",
     "test": "node --experimental-sqlite --test tests/*.test.cjs tests/*.test.mjs",
-    "check": "node --check dist/app.js && node --check dist/workspace.js && node --check server/worker.mjs && node --check dist/engine.js && node --check dist/data.js && node --check scripts/dev-server.mjs && node --check scripts/build.mjs"
+    "check": "node --check dist/enrichment.js && node --check dist/enrichment-data.mjs && node --check dist/enrichment-rules.mjs && node --check server/enrichment.mjs && node --check server/worker.mjs && node --check scripts/dev-server.mjs && node --check scripts/build.mjs && node --check dist/workbench-ui.mjs && node --check dist/platforms.mjs && node --check server/workbench.mjs && node --check server/cloudflare.mjs && node --check scripts/build-cloudflare.mjs",
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "deploy:cloudflare": "wrangler deploy --config .cloudflare/wrangler.json"
   },
   "dependencies": {
-    "drizzle-orm": "0.45.2"
+    "drizzle-orm": "0.45.2",
+    "jose": "6.2.12"
   },
   "devDependencies": {
     "drizzle-kit": "0.31.10",
-    "esbuild": "0.25.5"
+    "esbuild": "0.25.5",
+    "wrangler": "4.147.0"
   },
   "engines": {
     "node": ">=22.13.0"

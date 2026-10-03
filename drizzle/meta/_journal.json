@@ -8,6 +8,20 @@
       "when": 1790294958674,
       "tag": "0000_clever_talos",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790915959615,
+      "tag": "0001_bright_switch",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790934833401,
+      "tag": "0002_dapper_harpoon",
+      "breakpoints": true
     }
   ]
 }

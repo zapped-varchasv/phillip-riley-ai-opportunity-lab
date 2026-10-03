@@ -6,9 +6,9 @@ import {sqliteAdapter,migrate} from './sqlite-adapter.mjs';
 if(existsSync('.env.local'))process.loadEnvFile('.env.local');
 const root=path.resolve('dist');mkdirSync('.local',{recursive:true});const DB=sqliteAdapter('.local/prg.sqlite');migrate(DB,path.resolve('drizzle'));
 const env={DB,OWNER_EMAIL:'owner@local.test',LOCAL_DEMO:'true',OPENAI_API_KEY:process.env.OPENAI_API_KEY,OPENAI_MODEL:process.env.OPENAI_MODEL||'gpt-4.1-mini'};
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.svg':'image/svg+xml'};
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.svg':'image/svg+xml'};
 // Local role chooser is implemented only in this localhost adapter, never in the hosted Worker.
-const personas={author:{id:'local-author',email:'author@local.test',name:'Alex · author'},reviewer:{id:'local-reviewer',email:'reviewer@local.test',name:'Riley · reviewer'},owner:{id:'local-owner',email:'owner@local.test',name:'Varchasv · demo owner'}};
+const personas={author:{id:'local-author',email:'author@local.test',name:'Alex · author'},reviewer:{id:'local-reviewer',email:'reviewer@local.test',name:'Riley · reviewer'},owner:{id:'local-owner',email:'owner@local.test',name:'Workspace administrator'}};
 env.ASSETS={async fetch(req){const u=new URL(req.url);let file;try{file=path.resolve(root,'.'+(u.pathname==='/'?'/index.html':decodeURIComponent(u.pathname)));}catch{return new Response('Invalid path',{status:400});}if(!file.startsWith(root+path.sep)||!existsSync(file))return new Response('Not found',{status:404});try{return new Response(readFileSync(file),{headers:{'Content-Type':types[path.extname(file)]||'application/octet-stream'}});}catch{return new Response('Not found',{status:404});}}};
 http.createServer(async(req,res)=>{
  try{

@@ -8,7 +8,8 @@ import {handle} from '../server/worker.mjs';
 import data from '../dist/data.js';
 
 function setup(t,filename=':memory:'){
- const db=sqliteAdapter(filename);migrate(db,path.resolve('drizzle'));t.after(()=>db.close());const env={DB:db,OWNER_EMAIL:'owner@test.local',ASSETS:{fetch:()=>new Response('static')}};
+ // Historical API regression coverage only; these write routes are disabled by default in v3.
+ const db=sqliteAdapter(filename);migrate(db,path.resolve('drizzle'));t.after(()=>db.close());const env={DB:db,OWNER_EMAIL:'owner@test.local',ENABLE_LEGACY_PORTFOLIO_WRITES:'true',ASSETS:{fetch:()=>new Response('static')}};
  async function call(route,{who='author',method='GET',value,headers={},transport}={}){
   const h={'content-type':'application/json','x-prg-request':'1',origin:'https://lab.test',...headers};if(who){h['oai-authenticated-user-id']=who;h['oai-authenticated-user-email']=who+'@test.local';}
   const response=await handle(new Request('https://lab.test/api'+route,{method,headers:h,...(value?{body:JSON.stringify(value)}:{})}),env,transport);

@@ -1,57 +1,54 @@
-# PRG One Workspace
+# Phillip Riley Recruitment Workspace
 
-Project documentation and public prototype source by Varchasv Gupta for recruitment workflow and AI enrichment work.
-
-The current workbench brings a case's next action, enrichment evidence, review decisions, notes and handoff into one place. The intended benefit is less switching between tools and less repeated administration, while keeping JobAdder as the main recruitment record.
-
-## Start here
-
-| You need to | Read |
-|---|---|
-| Understand progress, remaining work and stakeholder decisions | [Stakeholder progress brief](docs/STAKEHOLDER_PROGRESS.md) |
-| Download a printable meeting document | [Five-page stakeholder PDF](docs/PRG_Stakeholder_Progress.pdf) |
-| Learn how to use the current workspace | [User guide](docs/USER_GUIDE.md) |
-| Collect requirements and track readiness | [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) |
-
-Read the progress brief first, use the user guide for a demonstration, then copy the blank implementation checklist into an approved private project space. Record confidential answers there, not in public GitHub issues.
+Recruitment workflows, enrichment evidence and platform handoffs in one place for Phillip Riley staff. JobAdder remains the main recruitment record.
 
 ## Current status
 
-The prototype includes saved cases, three workflow types, linked enrichment reviews, checkpoints, notes, handoff exports, a platform hub and search. Its 45 automated checks and desktop/mobile review establish prototype behaviour, not production readiness or measured business savings.
+This public repository now contains the current workspace application source, including the staff guide, work board, enrichment review, platform hub and database migrations. It replaces the earlier portfolio interface.
 
-**Live integrations and live AI are not configured in the current workbench.** It uses fictional rehearsal data. Platform shortcuts and setup checklists do not synchronise records or establish API access.
+**The replacement hosting address is not live yet.** The requested public name is **PRG Workspace**. A company domain can be attached later. Hosting account setup, production authentication and database migration must be completed before moving the existing application.
 
-[Open PRG One Workspace](https://prg.varchasvgupta0808.chatgpt.site). The site is public. Sign-in is still required for saved workspace features, and record permissions remain enforced. The stakeholder brief was prepared before public sharing was enabled; its private-access references describe that earlier snapshot.
+GitHub stores the source and runs verification. GitHub Pages alone cannot run this app's database or authenticated API. See [Hosting migration](docs/HOSTING_MIGRATION.md) for the current blocker and deployment checklist.
 
-## What this repository contains
+## Start here
 
-**The documentation above describes the current private workbench. The application source in this public repository is an earlier prototype.** The current workbench source is maintained separately because it includes internal workflow summaries. Cloning this repository does not run the current private Site.
-
-The earlier source remains available for technical reference. Its speculative opportunity scores, cost examples and workflow demonstrations are not current project plans or measured results. Use the current stakeholder brief and implementation checklist for delivery decisions.
-
-| Technical reference | Scope |
+| Task | Guide |
 |---|---|
-| [Setup](docs/SETUP.md) | Running and configuring the earlier public application |
-| [Architecture](docs/ARCHITECTURE.md) | Public prototype components and integration boundaries |
-| [Validation notes](docs/QA.md) | Checks performed on the earlier public application |
-| [Public research](docs/RESEARCH.md) | Dated public sources and assumptions |
-| [Asset attribution](docs/ASSETS.md) | Logo ownership and branding references |
+| Understand progress and remaining work | [Stakeholder progress](docs/STAKEHOLDER_PROGRESS.md) |
+| Use the workspace | [User guide](docs/USER_GUIDE.md) |
+| Agree company access and integrations | [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) |
+| Move hosting and choose an address | [Hosting migration](docs/HOSTING_MIGRATION.md) |
+| Check logo attribution | [Asset attribution](docs/ASSETS.md) |
 
-## Run the earlier public prototype
+The printable stakeholder PDF and older technical notes are historical snapshots. Use the application source, current user guide and hosting migration document for the current version.
 
-Use Node.js 22.13 or later:
+## What works
+
+- Saved permanent, contract and client-research work items with stage checklists, evidence, notes and handoff exports.
+- Field-by-field enrichment review with accept, hold and reject decisions, history and approved-field exports.
+- Platform shortcuts, setup notes, workflow maps, cost cases, pilot measurements and project decisions.
+- Search across saved cases, records, pages and platforms.
+- Staff guidance for consultants, reviewers, operations and managers.
+
+Use fictional examples only. Live AI, platform synchronisation and JobAdder writeback are not connected. Cases and shortcuts remain account-specific; an assignee label does not share a case or notify a colleague. These are prototype capabilities, not measured savings or production readiness.
+
+## Run locally
+
+Requires Node.js 22.13 or later:
 
 ```sh
-git clone https://github.com/zapped-varchasv/phillip-riley-ai-opportunity-lab.git
-cd phillip-riley-ai-opportunity-lab
 npm ci
+npm run check
+npm test
 npm start
 ```
 
-Open `http://127.0.0.1:4174`. Local sign-in simulates development accounts and records persist in ignored `.local/prg.sqlite`. Follow the [setup guide](docs/SETUP.md) for details. The optional assistant in this earlier code requires server-side API configuration and credits; it is separate from the current workbench's capabilities.
+Open `http://127.0.0.1:4174`. The localhost adapter simulates sign-in roles and saves fictional records in ignored `.local/prg.sqlite`. It must never be exposed as a production server. Run `npm run build` to build the existing hosted runtime.
 
-## Information handling
+## Hosting and information handling
 
-Company documents, private configuration, credentials and operational records are excluded. Use fictional examples only. This repository is not an operational ATS or a place to store candidate or client information.
+The existing Site runtime expects its authenticated hosting gateway. The new Cloudflare entrypoint verifies Access tokens and rejects unauthenticated API calls. Use `npm run build:cloudflare` with a provisioned D1 database ID and follow the hosting migration guide to configure staff sign-in before enabling saved workflows. All 50 automated checks pass; the new host still needs deployment and end-to-end verification.
 
-Original code is [MIT licensed](LICENSE). The Phillip Riley logo remains owned by its rights holder and is excluded from that licence; see [asset attribution](docs/ASSETS.md). No official product endorsement is claimed.
+Original company documents, credentials, account lists, saved records and local databases are excluded. Repository code includes the workflow summaries already displayed in the public prototype. Store actual operational records only in approved company systems.
+
+Original code is [MIT licensed](LICENSE). Phillip Riley's logo remains owned by its rights holder and is excluded from that licence; see [asset attribution](docs/ASSETS.md).

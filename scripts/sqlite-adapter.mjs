@@ -7,9 +7,11 @@ export function sqliteAdapter(filename=':memory:'){
   bind(...values){return wrapper(sql,values);},
   async first(){return sqlite.prepare(sql).get(...args)||null;},
   async all(){return {results:sqlite.prepare(sql).all(...args)};},
-  async run(){const r=sqlite.prepare(sql).run(...args);return {success:true,meta:{changes:Number(r.changes)}};}
+  _run(){const r=sqlite.prepare(sql).run(...args);return {success:true,meta:{changes:Number(r.changes)}};},
+  async run(){return this._run();}
  });
- return {sqlite,prepare:sql=>wrapper(sql),async batch(statements){sqlite.exec('BEGIN IMMEDIATE');try{const result=[];for(const s of statements)result.push(await s.run());sqlite.exec('COMMIT');return result;}catch(e){sqlite.exec('ROLLBACK');throw e;}},close:()=>sqlite.close()};
+ // DatabaseSync transactions must not yield between statements. This mirrors D1's atomic batch.
+ return {sqlite,prepare:sql=>wrapper(sql),async batch(statements){sqlite.exec('BEGIN IMMEDIATE');try{const result=statements.map(s=>s._run());sqlite.exec('COMMIT');return result;}catch(e){sqlite.exec('ROLLBACK');throw e;}},close:()=>sqlite.close()};
 }
 export function migrate(db,directory){
  db.sqlite.exec('CREATE TABLE IF NOT EXISTS local_migrations (name TEXT PRIMARY KEY)');

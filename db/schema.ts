@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, real, index } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, real, index, uniqueIndex } from 'drizzle-orm/sqlite-core';
 
 export const users=sqliteTable('users',{
  id:text('id').primaryKey(),email:text('email').notNull(),name:text('name').notNull(),
@@ -36,3 +36,31 @@ export const priorities=sqliteTable('priority_snapshots',{
  id:text('id').primaryKey(),ownerId:text('owner_id').notNull().references(()=>users.id),name:text('name').notNull(),
  scores:text('scores').notNull(),createdAt:text('created_at').notNull()
 },t=>[index('priorities_owner_idx').on(t.ownerId)]);
+
+export const enrichmentRecords=sqliteTable('enrichment_records',{
+ id:text('id').primaryKey(),ownerId:text('owner_id').notNull().references(()=>users.id),externalId:text('external_id').notNull(),
+ name:text('name').notNull(),kind:text('kind').notNull(),workflow:text('workflow').notNull(),payload:text('payload').notNull(),
+ version:integer('version').notNull().default(1),createdAt:text('created_at').notNull(),updatedAt:text('updated_at').notNull()
+},t=>[uniqueIndex('enrichment_owner_external_idx').on(t.ownerId,t.externalId)]);
+export const enrichmentEvents=sqliteTable('enrichment_events',{
+ id:text('id').primaryKey(),recordId:text('record_id').notNull().references(()=>enrichmentRecords.id),actorId:text('actor_id').notNull().references(()=>users.id),
+ kind:text('kind').notNull(),version:integer('version').notNull(),note:text('note').notNull(),snapshot:text('snapshot').notNull(),createdAt:text('created_at').notNull()
+},t=>[index('enrichment_events_record_idx').on(t.recordId)]);
+export const enrichmentStudies=sqliteTable('enrichment_studies',{
+ id:text('id').primaryKey(),ownerId:text('owner_id').notNull().references(()=>users.id),type:text('type').notNull(),
+ name:text('name').notNull(),payload:text('payload').notNull(),createdAt:text('created_at').notNull()
+},t=>[index('enrichment_studies_owner_idx').on(t.ownerId,t.type)]);
+
+export const workItems=sqliteTable('work_items',{
+ id:text('id').primaryKey(),ownerId:text('owner_id').notNull().references(()=>users.id),title:text('title').notNull(),kind:text('kind').notNull(),
+ stage:integer('stage').notNull().default(0),recordId:text('record_id').references(()=>enrichmentRecords.id),payload:text('payload').notNull(),
+ version:integer('version').notNull().default(1),createdAt:text('created_at').notNull(),updatedAt:text('updated_at').notNull()
+},t=>[index('work_owner_idx').on(t.ownerId)]);
+export const workEvents=sqliteTable('work_events',{
+ id:text('id').primaryKey(),workId:text('work_id').notNull().references(()=>workItems.id),actorId:text('actor_id').notNull().references(()=>users.id),
+ kind:text('kind').notNull(),note:text('note').notNull(),version:integer('version').notNull(),createdAt:text('created_at').notNull()
+},t=>[index('work_event_idx').on(t.workId)]);
+export const platformSettings=sqliteTable('platform_settings',{
+ id:text('id').primaryKey(),ownerId:text('owner_id').notNull().references(()=>users.id),platformId:text('platform_id').notNull(),
+ payload:text('payload').notNull(),version:integer('version').notNull().default(1),updatedAt:text('updated_at').notNull()
+},t=>[uniqueIndex('platform_owner_idx').on(t.ownerId,t.platformId)]);

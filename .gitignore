@@ -10,3 +10,6 @@ dist/client/
 dist/.openai/
 .local/
 .dev.vars*
+
+.cloudflare/
+.wrangler/
