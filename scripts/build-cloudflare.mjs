@@ -8,9 +8,10 @@ for(const file of ['index.html','workbench-ui.mjs','workbench.css','platforms.mj
 for(const file of ['index.html','enrichment.js']){
  const path='.cloudflare/client/'+file;
  let text=await readFile(path,'utf8');
- text=text.replaceAll('/signin-with-chatgpt','/auth/login').replaceAll('/signout-with-chatgpt','/cdn-cgi/access/logout');
+ text=text.replaceAll('/signin-with-chatgpt','/signin').replaceAll('/signout-with-chatgpt','/cdn-cgi/access/logout');
+ text=text.replace('<a href="/signin">Sign in</a>','<a href="/signin">Sign in with work email</a>').replace('<a href="#guide">Staff sign-in pending</a>','<a href="/signin">Sign in with work email</a>');
  if(file==='enrichment.js')text=text.replace(' · <a href="#guide">Staff guide</a>',' · <a href="#guide">Staff guide</a> · <a href="/cdn-cgi/access/logout">Sign out</a>');
  await writeFile(path,text);
 }
-await writeFile('.cloudflare/wrangler.json',JSON.stringify({name:'prg-workspace',main:'worker.js',compatibility_date:'2026-10-03',workers_dev:true,preview_urls:false,keep_vars:true,assets:{directory:'client',binding:'ASSETS',run_worker_first:['/api/*','/auth/*']},d1_databases:[{binding:'DB',database_name:'prg-workspace',database_id:databaseId,migrations_dir:'../drizzle'}]},null,2));
+await writeFile('.cloudflare/wrangler.json',JSON.stringify({name:'prg-workspace',main:'worker.js',compatibility_date:'2026-10-03',workers_dev:true,preview_urls:false,keep_vars:true,assets:{directory:'client',binding:'ASSETS',run_worker_first:['/api/*','/auth/*','/signin']},d1_databases:[{binding:'DB',database_name:'prg-workspace',database_id:databaseId,migrations_dir:'../drizzle'}]},null,2));
 console.log('Cloudflare build complete. Configure Access and runtime secrets before enabling saved staff workflows.');

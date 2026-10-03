@@ -18,6 +18,7 @@ GitHub stores the source and runs verification. GitHub Pages alone cannot run th
 |---|---|
 | Understand progress and remaining work | [Stakeholder progress](docs/STAKEHOLDER_PROGRESS.md) |
 | Use the workspace | [User guide](docs/USER_GUIDE.md) |
+| Set up work-email sign-in | [Work-email sign-in](docs/WORK_EMAIL_SIGN_IN.md) |
 | Agree company access and integrations | [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) |
 | Move hosting and choose an address | [Hosting migration](docs/HOSTING_MIGRATION.md) |
 | Check logo attribution | [Asset attribution](docs/ASSETS.md) |

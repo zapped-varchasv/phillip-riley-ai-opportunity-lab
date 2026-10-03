@@ -10,6 +10,8 @@ Instructions for the current prototype as at 3 October 2026. Start with fictiona
 
 ## Saved-workflow demonstration (after staff sign-in is enabled)
 
+Use **Sign in with work email** in the top bar. After activation, the secure login screen will send a one-time code to your approved work address. See [Work-email sign-in](WORK_EMAIL_SIGN_IN.md) for employee instructions and the remaining administrator setup. The sign-in page explicitly reports when activation is still pending.
+
 This sequence uses fictional examples and does not need a paid provider connection.
 
 1. Open **Overview**. Notice the saved-case and pending-review counts. These are workspace figures, not live business performance.
