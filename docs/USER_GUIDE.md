@@ -1,10 +1,10 @@
 # PRG One Workspace user guide
 
-Instructions for the current private prototype as at 3 October 2026. Start with fictional data. The workspace saves cases, reviews and notes, but it does not synchronise live systems or send messages.
+Instructions for the current prototype as at 3 October 2026. Start with fictional data. The workspace saves cases, reviews and notes, but it does not synchronise live systems or send messages.
 
 ## Choose the right version
 
-- **Current private workspace:** [Open PRG One Workspace](https://prg-opportunity-lab-varchasv.varchasvgupta0808.chatgpt.site). Sign in with an authorised account. Having the URL does not grant access; access is currently restricted to the owner.
+- **Current workspace:** [Open PRG One Workspace](https://prg.varchasvgupta0808.chatgpt.site). Public viewing was enabled on 3 October 2026. Sign in to use saved features; account and reviewer permissions still apply.
 - **Public repository code:** the earlier portfolio application. Cloning this repository runs that earlier version, not the current private workbench.
 - **Current progress and requests:** [Stakeholder progress brief](STAKEHOLDER_PROGRESS.md) and [implementation checklist](IMPLEMENTATION_CHECKLIST.md).
 
@@ -81,7 +81,7 @@ Use **Sources & decisions** to record unresolved questions, decisions and their 
 
 | What you see | What it means and what to do |
 |---|---|
-| Access denied or sign-in required | The Site is private. Use an authorised account; the repository link does not confer permission. |
+| Access denied or sign-in required | The Site is public, but saved features require sign-in. Use your account; reviewer actions require the appropriate role. |
 | No cases or records | Your account may have no saved work. Load the fictional examples or create a case. |
 | A record is missing from the link selector | It must belong to your account and match the selected workflow. |
 | Cannot complete a stage | Save every required checkpoint and a nonempty evidence reference. Do not invent evidence to proceed. |

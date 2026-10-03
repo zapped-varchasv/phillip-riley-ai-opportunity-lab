@@ -2,7 +2,7 @@
 
 Project documentation and public prototype source by Varchasv Gupta for recruitment workflow and AI enrichment work.
 
-The current private workbench brings a case's next action, enrichment evidence, review decisions, notes and handoff into one place. The intended benefit is less switching between tools and less repeated administration, while keeping JobAdder as the main recruitment record.
+The current workbench brings a case's next action, enrichment evidence, review decisions, notes and handoff into one place. The intended benefit is less switching between tools and less repeated administration, while keeping JobAdder as the main recruitment record.
 
 ## Start here
 
@@ -17,11 +17,11 @@ Read the progress brief first, use the user guide for a demonstration, then copy
 
 ## Current status
 
-The private prototype includes saved cases, three workflow types, linked enrichment reviews, checkpoints, notes, handoff exports, a platform hub and search. Its 45 automated checks and desktop/mobile review establish prototype behaviour, not production readiness or measured business savings.
+The prototype includes saved cases, three workflow types, linked enrichment reviews, checkpoints, notes, handoff exports, a platform hub and search. Its 45 automated checks and desktop/mobile review establish prototype behaviour, not production readiness or measured business savings.
 
 **Live integrations and live AI are not configured in the current workbench.** It uses fictional rehearsal data. Platform shortcuts and setup checklists do not synchronise records or establish API access.
 
-[Open the private workspace](https://prg-opportunity-lab-varchasv.varchasvgupta0808.chatgpt.site). An authorised account is required; repository access does not grant Site access.
+[Open PRG One Workspace](https://prg.varchasvgupta0808.chatgpt.site). The site is public. Sign-in is still required for saved workspace features, and record permissions remain enforced. The stakeholder brief was prepared before public sharing was enabled; its private-access references describe that earlier snapshot.
 
 ## What this repository contains
 
