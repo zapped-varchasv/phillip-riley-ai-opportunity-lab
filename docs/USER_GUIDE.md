@@ -1,6 +1,20 @@
-# PRG One Workspace user guide
+# PRG AI Discovery & Trials user guide
 
-Instructions for the current prototype as at 3 October 2026. Start with fictional data. The workspace saves cases, reviews and notes, but it does not synchronise live systems or send messages.
+Updated 5 October 2026. Use the site to build evidence for the JD deliverables. It is not a production recruitment system.
+
+## Work through the project
+
+1. **Project overview:** read the eight deliverables and the evidence still needed. These statuses describe starting material, not signed-off completion.
+2. **Staff discovery:** expand the relevant function. Record licence entitlements, configured features, actual use and observed gaps. Start with the existing process map and platform inventory rather than asking staff to repeat documented information.
+3. **Opportunity register:** expand an idea, record an evidence reference and owner, then rate impact, frequency and feasibility from 1 to 5. Select **Update ranking**. Blank ratings remain unranked. The proposed equal weights need discussion with management; a high score does not grant trial approval.
+4. **Agent reviews & trials:** review the existing sales, advert and chief-of-staff uses. For two or three agreed trials, record scope, approved sample, reviewer, baseline, quality threshold, assisted results, costs and stop conditions. Include review and correction time. Link to evidence kept in approved company systems.
+5. **Four-path comparison:** compare the same use case using existing tools, a general AI platform, specialist software and a tailored solution. Enter one-off setup/training and annual subscription/support/usage. Click **Calculate comparison**. Missing inputs remain unknown; use zero only if confirmed. Record evidence, scope, risks, benefits and resource requirements.
+6. **Roadmap & handover:** agree owners, dependencies and proceed/stop conditions for the first 90 days, months 3–6 and months 6–12. Document training and management presentation needs.
+7. **Download worksheet:** keep the JSON file in an approved location. **Import worksheet** reopens that file in the current tab. Importing replaces current notes after a warning if there are unsaved changes.
+
+The planning notes are held in memory in the current tab. They survive navigation within the site, but not closing or reloading the page. Download regularly. They are not uploaded, saved in the database, shared with colleagues or submitted for approval. Do not enter personal records or confidential documents. Imported claims are not independently verified.
+
+Cost assumptions: AUD, consistent GST basis, unchanged annual costs, no discounting. Year 1 = setup + initial training + one year of recurring costs. Three-year total = setup + initial training + three years of recurring costs. Record renewal changes and exclusions separately. Capacity released is not automatically a cash saving or extra revenue.
 
 ## Choose the right version
 
@@ -14,9 +28,9 @@ Use **Sign in with work email** in the top bar. After activation, the secure log
 
 This sequence uses fictional examples and does not need a paid provider connection.
 
-1. Open **Overview**. Notice the saved-case and pending-review counts. These are workspace figures, not live business performance.
-2. Open **Enrichment review** and choose **Load demonstration**. This saves fictional records with different evidence situations. Loading again does not overwrite existing demo IDs.
-3. Open **Work board** and choose **Load examples**. Open **Demo · Grid connection engineer**.
+1. Open **Rehearsal work board**. Saved-case figures describe the prototype, not live business performance.
+2. Open **Enrichment rehearsal** and choose **Load demonstration**. This saves fictional records with different evidence situations. Loading again does not overwrite existing demo IDs.
+3. Open **Rehearsal work board** and choose **Load examples**. Open **Demo · Grid connection engineer**.
 4. Choose **Edit details**. Set a demonstration due date and select **Alex Morgan · DEMO-C001** as the linked enrichment record. Save the details. Only matching records owned by your account are available.
 5. In **Next action**, review the fictional brief checkpoints. Add a reference such as “Synthetic brief reviewed for demonstration.” Choose **Save checkpoints** to keep partial progress or **Complete stage** when all checkpoints and the evidence reference are present.
 6. Open the case's **Enrichment** tab. Compare a current value, proposed value and supporting excerpt. Use **Accept field**, **Hold** or **Reject** as appropriate. An owner or reviewer can decide; an author prepares evidence.
@@ -73,7 +87,7 @@ Use **Sources & decisions** to record unresolved questions, decisions and their 
 ## Practical habits
 
 - Keep one case focused on a specific record review or handoff, rather than duplicating the whole ATS pipeline.
-- Work from **Overview → Next up** or a filtered **Work board**.
+- Work from **Overview → Next up** or a filtered **Rehearsal work board**.
 - Save explicitly before leaving a form. There is no general autosave or guaranteed recovery of unsaved text.
 - Enter a useful reference and outcome instead of pasting large documents into notes.
 - Review stale, conflicting and held fields before exporting.

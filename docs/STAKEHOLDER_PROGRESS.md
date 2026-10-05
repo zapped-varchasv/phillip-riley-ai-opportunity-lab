@@ -1,22 +1,26 @@
 # PRG One Workspace progress and next steps
 
 Prepared by Varchasv Gupta for project stakeholders  
-Status as at 3 October 2026  
+Status as at 5 October 2026
 Public project summary with confidential operational detail excluded
 
 ## The current position
 
-The project has progressed from an interview demonstration to a working, privately hosted prototype. It brings a case's next action, enrichment evidence, review decisions, notes and handoff into one place. The intended benefit is less switching between screens and less repeated administration while keeping JobAdder as the main recruitment record.
+The prototype is ahead of the business evidence. The website is now organised around the internship's eight deliverables, with enrichment retained as a supporting rehearsal. The JD calls for discovery, prioritisation, controlled testing and commercial recommendations; a full production system is not required.
 
-**The workspace functions are built and tested. Live platform connections and a real operational pilot are still to be completed.** It can save fictional cases and reviews today. It does not yet fetch live platform data, update JobAdder or send messages. No actual time saving, cash saving or improvement in recruitment outcomes has been demonstrated.
+The public site supports planning worksheets without sign-in. These cover staff discovery, 15 starting hypotheses, existing-agent reviews, three trial plans, four commercial paths with one- and three-year costs, the tailored-solution decision and a 12-month roadmap. Notes remain in the current tab and must be downloaded to keep them; they are not shared company records or approvals.
 
-The next decision is to agree one small enrichment pilot, name its business and system owners, and arrange approved access. A focused pilot will show whether to configure existing tools or build a small additional connection.
+**Still needed:** validate actual tool usage and entitlements, review the existing agents, agree and run two or three controlled trials, obtain cost evidence, compare options, agree roadmap owners, deliver training and present the recommendation. No measured business savings, completed staff trials or approved vendor recommendation are claimed.
 
-## What stakeholders can see now
+The Cloudflare site is public and its database schema is deployed. Work-email sign-in remains pending setup; database saves are unavailable on this host until access is activated. Live AI, platform integrations and operational rollout are not connected. Previous-host records have not been migrated.
+
+The next business decision is one agreed trial: scope, accountable owner, approved sample, reviewer, baseline and success measure. Check existing licensed capabilities before considering new spend.
+
+## Supporting rehearsal capabilities
 
 | Capability | Current position | Practical purpose |
 |---|---|---|
-| Dashboard and work board | Built with saved cases, due dates and priorities | Make the next action visible. |
+| Project overview and rehearsal work board | JD deliverables on the homepage; synthetic case workflow behind staff access | Keep evidence gaps and next actions visible. |
 | Three workflow types | Permanent, contract and client research prototypes | Keep different tasks and handoffs separate. |
 | Enrichment review | Current and proposed values, evidence, accept, hold and reject | Make changes inspectable before use. |
 | Case notes and history | Saved notes, stage checkpoints and change history | Retain context through a handoff. |

@@ -1,10 +1,10 @@
-# Phillip Riley Recruitment Workspace
+# Phillip Riley AI Discovery & Trials
 
-Recruitment workflows, enrichment evidence and platform handoffs in one place for Phillip Riley staff. JobAdder remains the main recruitment record.
+A workspace for the AI internship deliverables: understand current work, validate opportunities, review existing AI, run controlled trials and recommend a practical commercial path. JobAdder remains the main recruitment record.
 
 ## Current status
 
-This public repository now contains the current workspace application source, including the staff guide, work board, enrichment review, platform hub and database migrations. It replaces the earlier portfolio interface.
+Updated 5 October 2026: the homepage now maps all eight JD deliverables. Staff discovery, 15 unranked opportunity hypotheses, existing-agent reviews, three trial templates, a four-path cost comparison and a 12-month roadmap are the primary workflow. Enrichment and case boards remain supporting rehearsals.
 
 **Public website: [PRG Workspace](https://prg-workspace.prg-team.workers.dev).** The website address contains neither a personal name nor ChatGPT branding. A company-approved domain can be attached later.
 
@@ -25,7 +25,13 @@ GitHub stores the source and runs verification. GitHub Pages alone cannot run th
 
 The printable stakeholder PDF and older technical notes are historical snapshots. Use the application source, current user guide and hosting migration document for the current version.
 
-## What works
+## Planning worksheets (available without sign-in)
+
+Start on Project overview, then work through Staff discovery, Opportunity register, Agent reviews & trials, Four-path comparison and Roadmap & handover. Notes stay in the current tab only. Download the JSON worksheet before closing or refreshing, and import it to continue. There is no automatic server save, collaboration or approval submission. Use sanitised observations and references, not personal records or confidential documents.
+
+Opportunity ratings are a proposed equal-weight discussion aid, not approved PRG criteria. Blank ratings are unranked. Cost totals stay unknown until all five components are entered; confirmed zero is allowed. Three-year totals count setup and initial training once and recurring costs three times. These are scenarios, not verified savings.
+
+## Rehearsal capabilities (database saves require staff sign-in)
 
 - Saved permanent, contract and client-research work items with stage checklists, evidence, notes and handoff exports.
 - Field-by-field enrichment review with accept, hold and reject decisions, history and approved-field exports.
@@ -50,7 +56,7 @@ Open `http://127.0.0.1:4174`. The localhost adapter simulates sign-in roles and 
 
 ## Hosting and information handling
 
-The existing Site runtime expects its authenticated hosting gateway. The new Cloudflare entrypoint verifies Access tokens and rejects unauthenticated API calls. Use `npm run build:cloudflare` with a provisioned D1 database ID and follow the hosting migration guide to configure staff sign-in before enabling saved workflows. All 50 automated checks pass; public deployment is verified; authenticated end-to-end checks remain pending Access setup.
+The existing Site runtime expects its authenticated hosting gateway. The new Cloudflare entrypoint verifies Access tokens and rejects unauthenticated API calls. Use `npm run build:cloudflare` with a provisioned D1 database ID and follow the hosting migration guide to configure staff sign-in before enabling saved workflows. All 59 automated checks pass; public deployment is verified; authenticated end-to-end checks remain pending Access setup.
 
 Original company documents, credentials, account lists, saved records and local databases are excluded. Repository code includes the workflow summaries already displayed in the public prototype. Store actual operational records only in approved company systems.
 

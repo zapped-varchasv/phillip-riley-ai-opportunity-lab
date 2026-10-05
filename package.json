@@ -9,7 +9,7 @@
     "build": "node scripts/build.mjs",
     "db:generate": "drizzle-kit generate",
     "test": "node --experimental-sqlite --test tests/*.test.cjs tests/*.test.mjs",
-    "check": "node --check dist/enrichment.js && node --check dist/enrichment-data.mjs && node --check dist/enrichment-rules.mjs && node --check server/enrichment.mjs && node --check server/worker.mjs && node --check scripts/dev-server.mjs && node --check scripts/build.mjs && node --check dist/workbench-ui.mjs && node --check dist/platforms.mjs && node --check server/workbench.mjs && node --check server/cloudflare.mjs && node --check scripts/build-cloudflare.mjs",
+    "check": "node --check dist/project-ui.mjs && node --check dist/project-model.mjs && node --check dist/enrichment.js && node --check dist/enrichment-data.mjs && node --check dist/enrichment-rules.mjs && node --check server/enrichment.mjs && node --check server/worker.mjs && node --check scripts/dev-server.mjs && node --check scripts/build.mjs && node --check dist/workbench-ui.mjs && node --check dist/platforms.mjs && node --check server/workbench.mjs && node --check server/cloudflare.mjs && node --check scripts/build-cloudflare.mjs",
     "build:cloudflare": "node scripts/build-cloudflare.mjs",
     "deploy:cloudflare": "node scripts/deploy-cloudflare.mjs"
   },
