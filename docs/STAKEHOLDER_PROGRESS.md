@@ -6,11 +6,11 @@ Public project summary with confidential operational detail excluded
 
 ## The current position
 
-The prototype is ahead of the business evidence. The website is now organised around the internship's eight deliverables, with enrichment retained as a supporting rehearsal. The JD calls for discovery, prioritisation, controlled testing and commercial recommendations; a full production system is not required.
+The website is organised around ongoing company work: data quality, recruitment processes, tool usage, AI quality, costs and continuous improvement. Its intended audience is the whole team. Current access and integration limitations are listed below; the long-term goal is a maintained staff workspace.
 
 The public site supports planning worksheets without sign-in. These cover staff discovery, 15 starting hypotheses, existing-agent reviews, three trial plans, four commercial paths with one- and three-year costs, the tailored-solution decision and a 12-month roadmap. Notes remain in the current tab and must be downloaded to keep them; they are not shared company records or approvals.
 
-**Still needed:** validate actual tool usage and entitlements, review the existing agents, agree and run two or three controlled trials, obtain cost evidence, compare options, agree roadmap owners, deliver training and present the recommendation. No measured business savings, completed staff trials or approved vendor recommendation are claimed.
+**Still needed:** validate actual tool usage and entitlements, review the existing agents, agree and run controlled trials, obtain cost evidence, compare options, agree roadmap owners, deliver training and present the recommendation. No measured business savings, completed staff trials or approved vendor recommendation are claimed.
 
 The Cloudflare site is public and its database schema is deployed. Work-email sign-in remains pending setup; database saves are unavailable on this host until access is activated. Live AI, platform integrations and operational rollout are not connected. Previous-host records have not been migrated.
 
@@ -20,7 +20,7 @@ The next business decision is one agreed trial: scope, accountable owner, approv
 
 | Capability | Current position | Practical purpose |
 |---|---|---|
-| Project overview and rehearsal work board | JD deliverables on the homepage; synthetic case workflow behind staff access | Keep evidence gaps and next actions visible. |
+| Project overview and rehearsal work board | Staff tasks and improvement areas on the homepage; synthetic case workflow behind staff access | Keep evidence gaps and next actions visible. |
 | Three workflow types | Permanent, contract and client research prototypes | Keep different tasks and handoffs separate. |
 | Enrichment review | Current and proposed values, evidence, accept, hold and reject | Make changes inspectable before use. |
 | Case notes and history | Saved notes, stage checkpoints and change history | Retain context through a handoff. |

@@ -19,14 +19,14 @@ export const opportunities = [
 export const agents=['Sales assistance','Job descriptions / adverts','Chief-of-staff assistance'];
 export const paths=['Existing paid tools and simple connections','Managed general AI platform','Specialist software','Tailored PRG solution'];
 export const deliverables=[
- ['Tools and AI map','Document-based starting map','Validate who uses each tool, what is paid for, what is configured and what works.','discovery'],
- ['10–20 ranked opportunities','15 starting hypotheses','Gather staff evidence and agree ranking criteria before selecting priorities.','opportunities'],
- ['Existing-agent review and 2–3 trials','Review and trial templates','Review the three existing agents; agree and measure controlled trials.','reviews'],
- ['System fit and information access','Connection notes and rehearsal','Confirm approved data, permissions, mappings and integration owners.','platforms'],
- ['Four-path options paper','Comparison worksheet','Obtain costs and assess benefit, risk and resources over one and three years.','options'],
- ['Tailored-solution recommendation','Decision prompts','Decide whether further investigation is justified against existing options.','options'],
- ['12-month roadmap','Proposed sequence','Agree owners, dependencies and stage gates for 90 days, 3–6 and 6–12 months.','roadmap'],
- ['Guidance, training and presentation','Prototype guidance','Validate staff instructions, deliver training and present the recommendation.','guide']
+ ['Team needs and tool usage','Usage review','Maintain a clear view of what teams use, what is included and where work gets delayed.','discovery'],
+ ['Improvement priorities','Opportunity register','Assess ideas using observed problems, expected value, effort and accountable owners.','opportunities'],
+ ['AI quality and trial results','Review workspace','Review existing AI regularly and measure proposed changes before wider adoption.','reviews'],
+ ['Tools and connections','Platform directory','Keep approved tools, access requirements, mappings and integration owners visible.','platforms'],
+ ['Costs and business cases','Options comparison','Compare costs, benefits, risks and resources over one and three years.','options'],
+ ['Solution decisions','Decision worksheet','Choose existing, general, specialist or tailored tools based on evidence and ongoing support needs.','options'],
+ ['Delivery and review plan','Rolling roadmap','Maintain priorities, owners, dependencies and review points as business needs change.','roadmap'],
+ ['Staff guidance and support','How to use the workspace','Keep working instructions, responsibilities and training up to date for every team.','guide']
 ];
 export const costKeys=['setup','training','subscription','support','usage'];
 export function optionTotals(x){

@@ -1,10 +1,10 @@
-# Phillip Riley AI Discovery & Trials
+# Phillip Riley Team Workspace
 
-A workspace for the AI internship deliverables: understand current work, validate opportunities, review existing AI, run controlled trials and recommend a practical commercial path. JobAdder remains the main recruitment record.
+A long-term workspace for Phillip Riley teams to improve data quality, coordinate workflows, assess AI tools and make informed cost decisions. JobAdder remains the main recruitment record.
 
 ## Current status
 
-Updated 5 October 2026: the homepage now maps all eight JD deliverables. Staff discovery, 15 unranked opportunity hypotheses, existing-agent reviews, three trial templates, a four-path cost comparison and a 12-month roadmap are the primary workflow. Enrichment and case boards remain supporting rehearsals.
+Updated 5 October 2026: the homepage brings together staff tasks and ongoing improvement work. Team needs & usage, 15 unranked opportunity hypotheses, existing-agent reviews, three trial templates, a four-path cost comparison and a 12-month roadmap are the primary workflow. Enrichment and case boards remain supporting rehearsals.
 
 **Public website: [PRG Workspace](https://prg-workspace.prg-team.workers.dev).** The website address contains neither a personal name nor ChatGPT branding. A company-approved domain can be attached later.
 
@@ -27,7 +27,7 @@ The printable stakeholder PDF and older technical notes are historical snapshots
 
 ## Planning worksheets (available without sign-in)
 
-Start on Project overview, then work through Staff discovery, Opportunity register, Agent reviews & trials, Four-path comparison and Roadmap & handover. Notes stay in the current tab only. Download the JSON worksheet before closing or refreshing, and import it to continue. There is no automatic server save, collaboration or approval submission. Use sanitised observations and references, not personal records or confidential documents.
+Start on Project overview, then work through Team needs & usage, Opportunity register, Agent reviews & trials, Four-path comparison and Roadmap & handover. Notes stay in the current tab only. Download the JSON worksheet before closing or refreshing, and import it to continue. There is no automatic server save, collaboration or approval submission. Use sanitised observations and references, not personal records or confidential documents.
 
 Opportunity ratings are a proposed equal-weight discussion aid, not approved PRG criteria. Blank ratings are unranked. Cost totals stay unknown until all five components are entered; confirmed zero is allowed. Three-year totals count setup and initial training once and recurring costs three times. These are scenarios, not verified savings.
 

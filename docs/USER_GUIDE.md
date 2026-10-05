@@ -1,13 +1,13 @@
-# PRG AI Discovery & Trials user guide
+# PRG Team Workspace user guide
 
-Updated 5 October 2026. Use the site to build evidence for the JD deliverables. It is not a production recruitment system.
+Updated 5 October 2026. Use the site to review team needs, improve information quality and maintain evidence for operational decisions. It is not a production recruitment system.
 
 ## Work through the project
 
-1. **Project overview:** read the eight deliverables and the evidence still needed. These statuses describe starting material, not signed-off completion.
-2. **Staff discovery:** expand the relevant function. Record licence entitlements, configured features, actual use and observed gaps. Start with the existing process map and platform inventory rather than asking staff to repeat documented information.
+1. **Workspace overview:** choose a staff task or an improvement area. These statuses describe starting material, not signed-off completion.
+2. **Team needs & usage:** expand the relevant function. Record licence entitlements, configured features, actual use and observed gaps. Start with the existing process map and platform inventory rather than asking staff to repeat documented information.
 3. **Opportunity register:** expand an idea, record an evidence reference and owner, then rate impact, frequency and feasibility from 1 to 5. Select **Update ranking**. Blank ratings remain unranked. The proposed equal weights need discussion with management; a high score does not grant trial approval.
-4. **Agent reviews & trials:** review the existing sales, advert and chief-of-staff uses. For two or three agreed trials, record scope, approved sample, reviewer, baseline, quality threshold, assisted results, costs and stop conditions. Include review and correction time. Link to evidence kept in approved company systems.
+4. **Agent reviews & trials:** review the existing sales, advert and chief-of-staff uses. For each agreed trial, record scope, approved sample, reviewer, baseline, quality threshold, assisted results, costs and stop conditions. Include review and correction time. Link to evidence kept in approved company systems.
 5. **Four-path comparison:** compare the same use case using existing tools, a general AI platform, specialist software and a tailored solution. Enter one-off setup/training and annual subscription/support/usage. Click **Calculate comparison**. Missing inputs remain unknown; use zero only if confirmed. Record evidence, scope, risks, benefits and resource requirements.
 6. **Roadmap & handover:** agree owners, dependencies and proceed/stop conditions for the first 90 days, months 3–6 and months 6–12. Document training and management presentation needs.
 7. **Download worksheet:** keep the JSON file in an approved location. **Import worksheet** reopens that file in the current tab. Importing replaces current notes after a warning if there are unsaved changes.
