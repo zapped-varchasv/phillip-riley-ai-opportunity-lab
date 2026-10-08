@@ -27,7 +27,7 @@ The printable stakeholder PDF and older technical notes are historical snapshots
 
 ## Client-prioritisation trial
 
-In [Agent reviews & trials](https://prg-workspace.prg-team.workers.dev/#reviews), choose 10 of the 20 supplied criteria, score clients 0–10 against each, and view the automatically ranked A/B/C priority list. Unknown scores remain unranked. Assessments stay in the current tab and are included in worksheet download/import. Use aliases and sanitised notes; shared storage and automated enrichment are not connected. See the [step-by-step user guide](docs/USER_GUIDE.md#trial-1-client-prioritisation).
+In [Agent reviews & trials](https://prg-workspace.prg-team.workers.dev/#reviews), choose 10 of the 20 supplied criteria, score clients 0–10 against each, and view the automatically ranked A/B/C priority list. Unknown scores remain unranked. Export Excel downloads a formatted .xlsx snapshot of priorities, scores, evidence and criteria. Assessments stay in the current tab and are included in JSON worksheet download/import. Use aliases and sanitised notes; shared storage and automated enrichment are not connected. See the [step-by-step user guide](docs/USER_GUIDE.md#trial-1-client-prioritisation).
 
 ## Planning worksheets (available without sign-in)
 

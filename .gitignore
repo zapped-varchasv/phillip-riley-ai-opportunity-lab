@@ -13,3 +13,5 @@ dist/.openai/
 
 .cloudflare/
 .wrangler/
+
+dist/client-trial-excel.mjs
