@@ -1,7 +1,7 @@
 # PRG One Workspace progress and next steps
 
 Prepared by Varchasv Gupta for project stakeholders  
-Status as at 5 October 2026
+Status as at 9 October 2026
 Public project summary with confidential operational detail excluded
 
 ## The current position
@@ -9,6 +9,8 @@ Public project summary with confidential operational detail excluded
 The website is organised around ongoing company work: data quality, recruitment processes, tool usage, AI quality, costs and continuous improvement. Its intended audience is the whole team. Current access and integration limitations are listed below; the long-term goal is a maintained staff workspace.
 
 The public site supports planning worksheets without sign-in. These cover staff discovery, 15 starting hypotheses, existing-agent reviews, three trial plans, four commercial paths with one- and three-year costs, the tailored-solution decision and a 12-month roadmap. Notes remain in the current tab and must be downloaded to keep them; they are not shared company records or approvals.
+
+Trial 1 now has an interactive client-prioritisation worksheet: choose 10 of 20 criteria, record staff scores and view a ranked A/B/C list. Incomplete assessments remain unranked. Worksheet download/import includes these assessments; shared database saving and AI-generated scores are not part of this trial. The team still needs to agree scoring definitions, approve the sample and measure usefulness and time spent.
 
 **Still needed:** validate actual tool usage and entitlements, review the existing agents, agree and run controlled trials, obtain cost evidence, compare options, agree roadmap owners, deliver training and present the recommendation. No measured business savings, completed staff trials or approved vendor recommendation are claimed.
 

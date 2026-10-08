@@ -1,3 +1,4 @@
+import {blankClientTrial,importClientTrial} from './client-trial-model.mjs';
 // Public planning templates. None of these ideas is a measured or approved PRG outcome.
 export const opportunities = [
  ['Candidate skills enrichment','Recruitment','Test whether evidence-backed skills improve search usefulness.'],
@@ -40,7 +41,7 @@ export function score(x){
  return values.every(n=>Number.isInteger(n)&&n>=1&&n<=5)?values.reduce((a,b)=>a+b,0):null;
 }
 export function readyForTrial(x){return x.status==='Validated'&&Boolean(x.evidence?.trim())&&Boolean(x.owner?.trim())&&score(x)!==null;}
-export function blankPlan(){return {format:'prg-discovery-v1',discovery:{},opportunities:{},agents:{},trials:{},options:{},roadmap:{},recommendation:{}};}
+export function blankPlan(){return {format:'prg-discovery-v1',discovery:{},opportunities:{},agents:{},trials:{},options:{},roadmap:{},recommendation:{},clientTrial:blankClientTrial()};}
 // Import only recognised fields, with bounded text and no HTML interpretation.
 export function importPlan(input){
  if(!input||input.format!=='prg-discovery-v1')throw new Error('Choose a PRG discovery worksheet exported by this site.');
@@ -50,5 +51,6 @@ export function importPlan(input){
   if(input[section]!==undefined&&(!input[section]||typeof input[section]!=='object'||Array.isArray(input[section])))throw new Error('The worksheet structure is invalid.');
   for(const id of ids){const item=input[section]?.[id];if(!item)continue;out[section][id]={};for(const key of keys){const v=item[key];if(v!==undefined){if(typeof v!=='string'||v.length>4000)throw new Error('Worksheet values must be text of up to 4,000 characters.');out[section][id][key]=v;}}}
  }
+ out.clientTrial=importClientTrial(input.clientTrial);
  return out;
 }

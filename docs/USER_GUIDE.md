@@ -1,6 +1,6 @@
 # PRG Team Workspace user guide
 
-Updated 5 October 2026. Use the site to review team needs, improve information quality and maintain evidence for operational decisions. It is not a production recruitment system.
+Updated 9 October 2026. Use the site to review team needs, improve information quality and maintain evidence for operational decisions. It is not a production recruitment system.
 
 ## Work through the project
 
@@ -15,6 +15,21 @@ Updated 5 October 2026. Use the site to review team needs, improve information q
 The planning notes are held in memory in the current tab. They survive navigation within the site, but not closing or reloading the page. Download regularly. They are not uploaded, saved in the database, shared with colleagues or submitted for approval. Do not enter personal records or confidential documents. Imported claims are not independently verified.
 
 Cost assumptions: AUD, consistent GST basis, unchanged annual costs, no discounting. Year 1 = setup + initial training + one year of recurring costs. Three-year total = setup + initial training + three years of recurring costs. Record renewal changes and exclusions separately. Capacity released is not automatically a cash saving or extra revenue.
+
+## Trial 1: client prioritisation
+
+Open **Agent reviews & trials** and use the client-prioritisation panel at the top.
+
+1. Choose exactly **10 of the 20 criteria** from the supplied client-quality slides. Agree what each means with the team, then select **Use these 10 criteria**. The same ten apply to all clients in this worksheet so comparisons are consistent.
+2. Select **+ Add client**. Enter an alias and reviewer or responsible role.
+3. Score each selected criterion from **0 to 10**: 0 does not meet it, 5 partly meets it, 10 fully meets it. Leave unknown information blank. Add sanitised evidence references and a next action where helpful.
+4. The priority list updates automatically when all ten scores are complete. Highest totals appear first; ties share a rank. **A = 80–100%, B = 60–79%, C = below 60%.** Incomplete assessments stay in **Needs review**. Zero is a valid assessed score, not an unknown.
+5. Add further clients, or select **Review / edit** to update an assessment. Changing the selected criteria recalculates all clients. Scores are retained by criterion, but missing newly selected scores prevent ranking.
+6. Select **Download worksheet** above the trial before refreshing or closing the tab. **Import worksheet** restores assessments and all other planning notes. These are browser-tab notes, not shared or server-saved records.
+
+All criteria are equally weighted. The thresholds above close the source slide's gap at 59%; confirm these working rules and common scoring examples with the team before operational use. A low category prompts review, not automatic rejection of a client. Staff supply the scores; the system calculates totals and priorities without generating ratings using AI.
+
+For a controlled trial, use the **Trial 1 · Client prioritisation plan & measurements** section below to record the sample, owner, approved data, manual baseline, scoring time, reviewer agreement, correction rate, staff feedback and next decision. The trial tests whether a consistent assessment saves preparation time and helps consultants agree priorities. No measured benefit is claimed yet. Use aliases and sanitised notes in the public preview; company records and shared access require the remaining access and data setup.
 
 ## Choose the right version
 

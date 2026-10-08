@@ -4,7 +4,7 @@ const databaseId=process.env.CLOUDFLARE_D1_DATABASE_ID;
 if(!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(databaseId||''))throw new Error('Set CLOUDFLARE_D1_DATABASE_ID to the provisioned database ID before building for Cloudflare.');
 await mkdir('.cloudflare/client',{recursive:true});
 await build({entryPoints:['server/cloudflare.mjs'],outfile:'.cloudflare/worker.js',bundle:true,format:'esm',platform:'browser',target:'es2022'});
-for(const file of ['index.html','project-ui.mjs','project-model.mjs','project.css','workbench-ui.mjs','workbench.css','platforms.mjs','enrichment.js','enrichment.css','enrichment-data.mjs','enrichment-rules.mjs','assets'])await cp('dist/'+file,'.cloudflare/client/'+file,{recursive:true});
+for(const file of ['index.html','project-ui.mjs','project-model.mjs','client-trial-model.mjs','client-trial-ui.mjs','project.css','workbench-ui.mjs','workbench.css','platforms.mjs','enrichment.js','enrichment.css','enrichment-data.mjs','enrichment-rules.mjs','assets'])await cp('dist/'+file,'.cloudflare/client/'+file,{recursive:true});
 for(const file of ['index.html','enrichment.js']){
  const path='.cloudflare/client/'+file;
  let text=await readFile(path,'utf8');
