@@ -4,7 +4,7 @@ A long-term workspace for Phillip Riley teams to improve data quality, coordinat
 
 ## Current status
 
-Updated 9 October 2026: the homepage brings together staff tasks and ongoing improvement work. Team needs & usage, 15 unranked opportunity hypotheses, existing-agent reviews, three trial templates, a four-path cost comparison and a 12-month roadmap are the primary workflow. Enrichment and case boards remain supporting rehearsals.
+Updated 12 October 2026: the homepage brings together staff tasks and ongoing improvement work. Team needs & usage, 15 unranked opportunity hypotheses, existing-agent reviews, client scoring, a market-intelligence trial and three measurement templates, a four-path cost comparison and a 12-month roadmap are the primary workflow. Enrichment and case boards remain supporting rehearsals.
 
 **Public website: [PRG Workspace](https://prg-workspace.prg-team.workers.dev).** The website address contains neither a personal name nor ChatGPT branding. A company-approved domain can be attached later.
 
@@ -28,6 +28,10 @@ The printable stakeholder PDF and older technical notes are historical snapshots
 ## Client-prioritisation trial
 
 In [Agent reviews & trials](https://prg-workspace.prg-team.workers.dev/#reviews), choose 10 of the 20 supplied criteria, score clients 0–10 against each, and view the automatically ranked A/B/C priority list. Unknown scores remain unranked. Export Excel downloads a formatted .xlsx snapshot of priorities, scores, evidence and criteria. Assessments stay in the current tab and are included in JSON worksheet download/import. Use aliases and sanitised notes; shared storage and automated enrichment are not connected. See the [step-by-step user guide](docs/USER_GUIDE.md#trial-1-client-prioritisation).
+
+## Market-intelligence trial
+
+Trial 2 adds a manual signal library for industry news, project updates, role changes and hiring activity, review-gated text call briefs and paired preparation-time measurements. Its proposed pilot also assesses permitted LinkedIn contact capture and approved capability-document reuse. These latter workflows, automated news collection, live AI and JobAdder synchronisation still need their approved tools and connections. No business savings are claimed. [Trial 2 instructions](docs/USER_GUIDE.md#trial-2-market-intelligence-and-business-development).
 
 ## Planning worksheets (available without sign-in)
 
@@ -60,7 +64,7 @@ Open `http://127.0.0.1:4174`. The localhost adapter simulates sign-in roles and 
 
 ## Hosting and information handling
 
-The existing Site runtime expects its authenticated hosting gateway. The new Cloudflare entrypoint verifies Access tokens and rejects unauthenticated API calls. Use `npm run build:cloudflare` with a provisioned D1 database ID and follow the hosting migration guide to configure staff sign-in before enabling saved workflows. All 59 automated checks pass; public deployment is verified; authenticated end-to-end checks remain pending Access setup.
+The existing Site runtime expects its authenticated hosting gateway. The new Cloudflare entrypoint verifies Access tokens and rejects unauthenticated API calls. Use `npm run build:cloudflare` with a provisioned D1 database ID and follow the hosting migration guide to configure staff sign-in before enabling saved workflows. All 75 automated checks pass; public deployment is verified; authenticated end-to-end checks remain pending Access setup.
 
 Original company documents, credentials, account lists, saved records and local databases are excluded. Repository code includes the workflow summaries already displayed in the public prototype. Store actual operational records only in approved company systems.
 

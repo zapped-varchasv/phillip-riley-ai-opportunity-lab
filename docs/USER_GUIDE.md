@@ -1,6 +1,6 @@
 # PRG Team Workspace user guide
 
-Updated 9 October 2026. Use the site to review team needs, improve information quality and maintain evidence for operational decisions. It is not a production recruitment system.
+Updated 12 October 2026. Use the site to review team needs, improve information quality and maintain evidence for operational decisions. It is not a production recruitment system.
 
 ## Work through the project
 
@@ -31,6 +31,27 @@ Open **Agent reviews & trials** and use the client-prioritisation panel at the t
 All criteria are equally weighted. The thresholds above close the source slide's gap at 59%; confirm these working rules and common scoring examples with the team before operational use. A low category prompts review, not automatic rejection of a client. Staff supply the scores; the system calculates totals and priorities without generating ratings using AI.
 
 For a controlled trial, use the **Trial 1 · Client prioritisation plan & measurements** section below to record the sample, owner, approved data, manual baseline, scoring time, reviewer agreement, correction rate, staff feedback and next decision. The trial tests whether a consistent assessment saves preparation time and helps consultants agree priorities. No measured benefit is claimed yet. Use aliases and sanitised notes in the public preview; company records and shared access require the remaining access and data setup.
+
+## Trial 2: market intelligence and business development
+
+This proposed trial responds to staff requests for less duplicate entry, reusable capability content and a searchable source of industry news, project updates, role changes and hiring signals. It has not yet produced measured business results.
+
+1. Open **Agent reviews & trials**, then use **Trial 2 · Market intelligence** at the top to jump to the new panel.
+2. Review **Trial scope, measures and responsibilities**. Agree a Sales owner, consultant reviewers, Marketing approver and JobAdder administrator. Record approvals in **Trial 2 · Market intelligence plan & measurements** below.
+3. Select **+ Add market signal**, or **Load one fictional example** to practise. Record a company alias, headline, original HTTPS source and publication date. Separate what the source says from your interpretation of its relevance. Add one useful call question and responsible role.
+4. Check the source, identity, date and relevance. Record a reviewer role and choose **Approved for brief** only after review. Required evidence fields must also be complete. Hold or dismiss irrelevant or questionable items. Editing approved content resets it to Needs verification.
+5. Select **Download call brief (.txt)**. The brief includes the source, factual summary, clearly labelled hypothesis, question, owner, optional JobAdder reference and approved capability content. It is assembled from your inputs; it is not an AI-generated research result. Nothing is sent or written to JobAdder.
+6. Use **Close editor** to return to the library. Filter by signal type and use **Review / edit** to update a record. Record follow-up outcomes after staff handle the conversation in the approved company systems.
+7. Time comparable manual and assisted preparation, including research, checks and corrections. Enter both in minutes. Missing pairs are excluded; zero is allowed, and a slower workflow reports negative capacity released. Record usefulness and error counts in the Trial 2 measurement worksheet. Do not mix contact-capture or document-preparation timings into the call-brief totals.
+8. Use **Download worksheet** at the top before closing or reloading. The JSON includes both trials and can be restored with **Import worksheet**. A text call brief is an output, not a backup of the worksheet.
+
+**Proposed pilot:** 10 working days, two consultants, 10 target companies, 20 market signals and 10 reviewed call briefs. As separate small tests, assess five permitted LinkedIn contact captures through an approved existing tool and five capability drafts using the same Marketing-approved template. Check existing JobAdder records before creating contacts. No automated LinkedIn harvesting is included.
+
+**Comparison:** record the current manual workflow first. Use comparable items and alternate manual/assisted order or different matched examples to reduce familiarity effects. Record sources searched, total preparation/review minutes, useful briefs out of all reviewed briefs, factual errors, stale/duplicate signals, and follow-up outcomes. For contacts, measure duplicate checks, successful field capture, duplicates and time per record. For capability drafts, measure time, corrections, unsupported claims and Marketing acceptance. Track software and staff costs separately.
+
+**Proposed decision thresholds, subject to agreement:** at least 30% lower preparation time in each assessed workstream, 8/10 useful call briefs, checked sources for every approved brief, no unsupported claims in approved outputs and no duplicate contacts from the five capture tests. Small samples establish direction, not a reliable revenue forecast. Rework, weak evidence or additional time means revise or stop that part of the trial.
+
+**Needed for live operation:** an agreed watchlist and news sources, permission/licensing for feeds, a refresh schedule and owner, approved AI access if used, JobAdder API permissions and record matching, Marketing templates/claims, secure staff access, shared storage, duplicate handling and a support owner. Confirm existing tool entitlements before purchasing another subscription. Automated monitoring, AI research, LinkedIn capture, branded document generation and JobAdder sync are not implemented by this trial panel.
 
 ## Choose the right version
 
