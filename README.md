@@ -1,5 +1,10 @@
 # Phillip Riley Team Workspace
 
+## Market intelligence extension — pending activation
+
+The local release adds project evidence, company lead scoring, a persistent three-model research queue, Sydney schedules, report approval and HTML/PDF exports. It reuses Cloudflare Workers and D1. Paid research, scheduled production runs and email require separate activation approvals. See [Intelligence operations and rollout](docs/INTELLIGENCE_OPERATIONS.md) for staff instructions, cost assumptions, credentials, recovery and remaining checks.
+
+
 A long-term workspace for Phillip Riley teams to improve data quality, coordinate workflows, assess AI tools and make informed cost decisions. JobAdder remains the main recruitment record.
 
 ## Current status

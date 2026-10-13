@@ -9,11 +9,13 @@
     "build": "node scripts/build.mjs",
     "db:generate": "drizzle-kit generate",
     "test": "node --experimental-sqlite --test tests/*.test.cjs tests/*.test.mjs",
-    "check": "node --check dist/market-trial-model.mjs && node --check dist/market-trial-ui.mjs && node --check src/client-trial-excel.mjs && node --check scripts/build-excel.mjs && node --check dist/client-trial-model.mjs && node --check dist/client-trial-ui.mjs && node --check dist/project-ui.mjs && node --check dist/project-model.mjs && node --check dist/enrichment.js && node --check dist/enrichment-data.mjs && node --check dist/enrichment-rules.mjs && node --check server/enrichment.mjs && node --check server/worker.mjs && node --check scripts/dev-server.mjs && node --check scripts/build.mjs && node --check dist/workbench-ui.mjs && node --check dist/platforms.mjs && node --check server/workbench.mjs && node --check server/cloudflare.mjs && node --check scripts/build-cloudflare.mjs",
+    "check": "node --check dist/market-trial-model.mjs && node --check dist/market-trial-ui.mjs && node --check src/client-trial-excel.mjs && node --check scripts/build-excel.mjs && node --check dist/client-trial-model.mjs && node --check dist/client-trial-ui.mjs && node --check dist/project-ui.mjs && node --check dist/project-model.mjs && node --check dist/enrichment.js && node --check dist/enrichment-data.mjs && node --check dist/enrichment-rules.mjs && node --check server/enrichment.mjs && node --check server/worker.mjs && node --check scripts/dev-server.mjs && node --check scripts/build.mjs && node --check dist/workbench-ui.mjs && node --check dist/platforms.mjs && node --check server/workbench.mjs && node --check server/cloudflare.mjs && node --check scripts/build-cloudflare.mjs && npm run check:intelligence",
     "build:cloudflare": "node scripts/build-cloudflare.mjs",
     "deploy:cloudflare": "node scripts/deploy-cloudflare.mjs",
     "prestart": "node scripts/build-excel.mjs",
-    "prestart:offline": "node scripts/build-excel.mjs"
+    "prestart:offline": "node scripts/build-excel.mjs",
+    "check:intelligence": "node --check server/intelligence.mjs && node --check server/intelligence-store.mjs && node --check server/intelligence-config.mjs && node --check server/intelligence-ai.mjs && node --check server/intelligence-jobs.mjs && node --check server/intelligence-report.mjs && node --check server/intelligence-mail.mjs && node --check server/intelligence-gmail.mjs && node --check dist/intelligence-model.mjs && node --check dist/intelligence-ui.mjs",
+    "check:models": "node scripts/check-intelligence-models.mjs"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
