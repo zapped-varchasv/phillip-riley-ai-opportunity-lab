@@ -1,6 +1,7 @@
 import { database } from './db.mjs';
 import { enrichment } from './enrichment.mjs';
 import { workbench } from './workbench.mjs';
+import { intelligence } from './intelligence.mjs';
 import engine from '../dist/engine.js';
 import data from '../dist/data.js';
 
@@ -98,6 +99,7 @@ export async function handle(request,env,transport=fetch){
  try{
   if(method!=='GET')writeGuard(request);
   const db=database(env),u=await userFor(request,env,db);
+  if(path==='/api/intelligence'||path.startsWith('/api/intelligence/'))return await intelligence(request,env,db,u,body);
   if(path.startsWith('/api/enrichment/'))return await enrichment(request,db,u,body);
   if(path.startsWith('/api/workbench'))return await workbench(request,db,u,body);
   if(method!=='GET'&&path!=='/api/users'&&env.ENABLE_LEGACY_PORTFOLIO_WRITES!=='true')return json({error:'The earlier portfolio is archived. Use the enrichment workspace for new work.'},410);

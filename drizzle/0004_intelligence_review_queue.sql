@@ -1,0 +1,1 @@
+CREATE TABLE mi_import_reviews (id TEXT PRIMARY KEY, review_key TEXT NOT NULL UNIQUE, payload TEXT NOT NULL, candidates TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open', created_at TEXT NOT NULL, resolved_by TEXT REFERENCES users(id), resolved_at TEXT);

@@ -5,8 +5,8 @@ const databaseId=process.env.CLOUDFLARE_D1_DATABASE_ID;
 if(!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(databaseId||''))throw new Error('Set CLOUDFLARE_D1_DATABASE_ID to the provisioned database ID before building for Cloudflare.');
 await mkdir('.cloudflare/client',{recursive:true});
 await build({entryPoints:['server/cloudflare.mjs'],outfile:'.cloudflare/worker.js',bundle:true,format:'esm',platform:'browser',target:'es2022'});
-for(const file of ['index.html','project-ui.mjs','project-model.mjs','client-trial-model.mjs','client-trial-ui.mjs','market-trial-model.mjs','market-trial-ui.mjs','client-trial-excel.mjs','project.css','workbench-ui.mjs','workbench.css','platforms.mjs','enrichment.js','enrichment.css','enrichment-data.mjs','enrichment-rules.mjs','assets'])await cp('dist/'+file,'.cloudflare/client/'+file,{recursive:true});
-for(const file of ['index.html','enrichment.js']){
+for(const file of ['intelligence-ui.mjs','intelligence-model.mjs','intelligence.css','index.html','project-ui.mjs','project-model.mjs','client-trial-model.mjs','client-trial-ui.mjs','market-trial-model.mjs','market-trial-ui.mjs','client-trial-excel.mjs','project.css','workbench-ui.mjs','workbench.css','platforms.mjs','enrichment.js','enrichment.css','enrichment-data.mjs','enrichment-rules.mjs','assets'])await cp('dist/'+file,'.cloudflare/client/'+file,{recursive:true});
+for(const file of ['index.html','enrichment.js','intelligence-ui.mjs']){
  const path='.cloudflare/client/'+file;
  let text=await readFile(path,'utf8');
  text=text.replaceAll('/signin-with-chatgpt','/signin').replaceAll('/signout-with-chatgpt','/cdn-cgi/access/logout');
@@ -14,5 +14,5 @@ for(const file of ['index.html','enrichment.js']){
  if(file==='enrichment.js')text=text.replace(' · <a href="#guide">Staff guide</a>',' · <a href="#guide">Staff guide</a> · <a href="/cdn-cgi/access/logout">Sign out</a>');
  await writeFile(path,text);
 }
-await writeFile('.cloudflare/wrangler.json',JSON.stringify({name:'prg-workspace',main:'worker.js',compatibility_date:'2026-10-03',workers_dev:true,preview_urls:false,keep_vars:true,assets:{directory:'client',binding:'ASSETS',run_worker_first:['/api/*','/auth/*','/signin']},d1_databases:[{binding:'DB',database_name:'prg-workspace',database_id:databaseId,migrations_dir:'../drizzle'}]},null,2));
+await writeFile('.cloudflare/wrangler.json',JSON.stringify({name:'prg-workspace',main:'worker.js',compatibility_date:'2026-10-03',workers_dev:true,preview_urls:false,keep_vars:true,vars:{INTELLIGENCE_SPEND_APPROVED:process.env.PRG_ALLOW_PAID_RESEARCH==='true'?'true':'false',INTELLIGENCE_EMAIL_APPROVED:process.env.PRG_ALLOW_EMAIL==='true'?'true':'false',INTELLIGENCE_PRODUCTION_EMAIL_APPROVED:process.env.PRG_ALLOW_PRODUCTION_EMAIL==='true'?'true':'false',INTELLIGENCE_SCHEDULE_APPROVED:process.env.PRG_ENABLE_INTELLIGENCE_CRON==='true'?'true':'false'},...(process.env.PRG_ENABLE_INTELLIGENCE_CRON==='true'?{triggers:{crons:['*/5 * * * *']}}:{}),assets:{directory:'client',binding:'ASSETS',run_worker_first:['/api/*','/auth/*','/signin']},d1_databases:[{binding:'DB',database_name:'prg-workspace',database_id:databaseId,migrations_dir:'../drizzle'}]},null,2));
 console.log('Cloudflare build complete. Configure Access and runtime secrets before enabling saved staff workflows.');

@@ -1,0 +1,29 @@
+{
+  "purpose": "Public-source evaluation cases, not live lead records or a completed model benchmark",
+  "reviewedAt": "2026-10-13",
+  "cases": [
+    {
+      "id": "hornsdale-historical-completion",
+      "project": "Hornsdale Power Reserve expansion",
+      "source": "https://arena.gov.au/blog/south-australian-battery-grows-bigger-and-better/",
+      "publicationDate": "2020-09-04",
+      "expected": {"state": "SA", "sectors": ["storage"], "announcedExpansionMW": 50, "historicalCompletion": true},
+      "mustNotClaim": ["New construction mobilisation in 2026 from this source alone", "Confirmed current recruitment demand", "Aurecon is the employer simply because it authored a report"]
+    },
+    {
+      "id": "snowy-multisector-forecast",
+      "project": "Snowy 2.0",
+      "source": "https://www.snowyhydro.com.au/snowy-20/about/",
+      "publicationDate": null,
+      "expected": {"state": "NSW", "sectors": ["hydro", "storage"], "announcedGenerationMW": 2200, "announcedStorageGWh": 350, "announcementNotRealisedOutput": true},
+      "mustNotClaim": ["Already delivering 2200 MW", "A confirmed mobilisation date without a dated source", "Named hiring contacts without public evidence", "Two separate projects for hydro and storage"]
+    }
+  ],
+  "acceptance": {
+    "unsupportedCriticalClaims": 0,
+    "inventedContacts": 0,
+    "duplicateHybridProjects": 0,
+    "requiredMetrics": ["project identification accuracy", "relationship precision", "source support rate", "duplicate detection precision and recall", "false-positive lead rate", "consultant actionability rating", "cost per accepted lead"],
+    "status": "Ground-truth starter set only. Expand to all eight sectors and run a paid blinded comparison after approval. Max reasoning remains disabled."
+  }
+}

@@ -1,6 +1,7 @@
 import {createRemoteJWKSet,jwtVerify} from 'jose';
 import {handle} from './worker.mjs';
 import {signInPage} from './signin-page.mjs';
+import {tickIntelligence} from './intelligence-jobs.mjs';
 
 const entries=value=>typeof value==='string'?value.split(',').map(s=>s.trim().toLowerCase()).filter(Boolean):[];
 const emailPattern=/^[^\s@]+@([a-z0-9](?:[a-z0-9.-]*[a-z0-9])?)$/i;
@@ -14,7 +15,7 @@ function staffPolicy(env){
 export function createCloudflareWorker(keySetFactory=createRemoteJWKSet){
  const keySets=new Map();
  const error=(status,message)=>Response.json({error:message},{status,headers:{'Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff'}});
- return {async fetch(request,env){
+ return {async scheduled(event,env,ctx){if(env.INTELLIGENCE_SCHEDULE_APPROVED==='true')ctx.waitUntil(tickIntelligence(env,{at:new Date(event.scheduledTime)}));},async fetch(request,env){
   const url=new URL(request.url);
   const policy=staffPolicy(env);
   const issuer=env.ACCESS_ISSUER,audience=env.ACCESS_AUDIENCE;

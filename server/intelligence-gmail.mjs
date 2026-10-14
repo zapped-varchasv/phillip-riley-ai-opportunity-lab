@@ -1,0 +1,10 @@
+// Company-managed OAuth credentials only. No Codex connector credentials are copied here.
+const base64=value=>{const bytes=new TextEncoder().encode(value);let binary='';for(const b of bytes)binary+=String.fromCharCode(b);return btoa(binary);};
+export function gmailMessage({to,subject,text,from,deliveryId}){for(const email of [to,from])if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@phillipriley\.com\.au$/.test(email))throw new Error('Only approved company email addresses are supported.');if(/[\r\n]/.test(subject)||!/^[a-zA-Z0-9-]+$/.test(deliveryId))throw new Error('Invalid email metadata.');const mime=[`From: ${from}`,`To: ${to}`,`Subject: =?UTF-8?B?${base64(subject)}?=`,`Message-ID: <prg-${deliveryId}@phillipriley.com.au>`,'MIME-Version: 1.0','Content-Type: text/plain; charset=UTF-8','Content-Transfer-Encoding: base64','',base64(text).match(/.{1,76}/g).join('\r\n')].join('\r\n');return {raw:base64(mime).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'')};}
+export function gmailReady(env){return !!(env.GMAIL_CLIENT_ID&&env.GMAIL_CLIENT_SECRET&&env.GMAIL_REFRESH_TOKEN&&env.GMAIL_SENDER);}
+export async function sendGmail(env,message,deliveryId,transport=fetch){
+ if(env.INTELLIGENCE_EMAIL_APPROVED!=='true'||!gmailReady(env))throw new Error('Company Gmail delivery is not configured and approved.');
+ const tokenResponse=await transport('https://oauth2.googleapis.com/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({client_id:env.GMAIL_CLIENT_ID,client_secret:env.GMAIL_CLIENT_SECRET,refresh_token:env.GMAIL_REFRESH_TOKEN,grant_type:'refresh_token'}),signal:AbortSignal.timeout(15000)});
+ if(!tokenResponse.ok)return new Response(null,{status:403});const token=await tokenResponse.json();if(!token.access_token)return new Response(null,{status:403});
+ return transport('https://gmail.googleapis.com/gmail/v1/users/me/messages/send',{method:'POST',headers:{Authorization:'Bearer '+token.access_token,'Content-Type':'application/json'},body:JSON.stringify(gmailMessage({...message,from:env.GMAIL_SENDER,deliveryId})),signal:AbortSignal.timeout(20000)});
+}
