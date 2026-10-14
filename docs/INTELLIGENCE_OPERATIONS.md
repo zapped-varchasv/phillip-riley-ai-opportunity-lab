@@ -4,7 +4,7 @@ This extension adds a shared, staff-only intelligence workspace to the existing 
 
 ## Release status — 14 October 2026
 
-Implemented locally; **not deployed or activated**. No paid AI inference or email has been performed for this release. The existing OpenAI key was reused with permission for read-only model metadata checks: all three requested model IDs returned HTTP 200. This establishes account visibility, not successful tool-enabled generation. Live inference compatibility and output quality still require the approved pilot.
+Implementation approved for deployment on 14 October 2026 with paid research, schedules and email disabled. **Live activation is not approved.** No paid AI inference or email has been performed for this release. The existing OpenAI key was reused with permission for read-only model metadata checks: all three requested model IDs returned HTTP 200. This establishes account visibility, not successful tool-enabled generation. Live inference compatibility and output quality still require the approved pilot.
 
 The existing site uses vanilla browser modules, Cloudflare Workers, D1/SQLite, Cloudflare Access JWT validation and a GitHub deployment. The staff authentication boundary fails closed if configuration is missing. This is reused, not replaced. Inspection found no “View All Jobs” component in this portal checkout; existing navigation and JobAdder shortcuts are preserved. This portal is different from a public recruitment jobs website.
 
@@ -76,15 +76,15 @@ Google OAuth consent must be completed by an authorised company administrator. T
 
 ## Deployment procedure (requires approval)
 
-1. Back up the existing D1 database and record the deployed Worker version. Confirm staff Access policies before storing company lead notes.
+1. Back up the existing D1 database and record the deployed Worker version. The deployment script now records the current D1 Time Travel recovery bookmark before applying migrations and stops if this check fails. Wrangler also captures its migration backup. Retain the recovery bookmark from the private deployment logs within the account’s retention window. Confirm staff Access policies before storing company lead notes.
 2. Run `npm run check`, `npm test`, then `npm run build:cloudflare` with the existing `CLOUDFLARE_D1_DATABASE_ID`.
 3. Apply `0003_market_intelligence.sql` and `0004_intelligence_review_queue.sql`. These are additive. Existing tables and scoring worksheets are unchanged. These raw SQL migrations are the authority for `mi_*` tables; do not run a Drizzle-generated destructive schema diff against them.
 4. Deploy with research, schedules and email switches absent/false. Verify anonymous requests fail, permitted staff enter and ordinary members cannot change administration settings.
 5. Configure `OPENAI_API_KEY` securely. Run `node scripts/check-intelligence-models.mjs` from the authorised environment. Run a separately approved small inference test before enabling schedules.
-6. After budget approval, set `INTELLIGENCE_SPEND_APPROVED=true` and enable research in Administration. Start with a manual verification request using public evidence.
+6. After budget approval, configure the build variable `PRG_ALLOW_PAID_RESEARCH=true` and redeploy to set `INTELLIGENCE_SPEND_APPROVED=true` and enable research in Administration. Start with a manual verification request using public evidence.
 7. For independent scheduling, rebuild with `PRG_ENABLE_INTELLIGENCE_CRON=true`, deploy the five-minute trigger and set `INTELLIGENCE_SCHEDULE_APPROVED=true`. Monitor the first daily and weekly cycles. This is a production infrastructure change requiring approval.
-8. Configure `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, `GMAIL_REFRESH_TOKEN`, `GMAIL_SENDER` as server secrets, or bind the company mail service. Set `INTELLIGENCE_PUBLIC_ORIGIN=https://prg-workspace.prg-team.workers.dev` and an explicitly approved `INTELLIGENCE_TEST_RECIPIENTS` list. Then set `INTELLIGENCE_EMAIL_APPROVED=true`, select test mode and approve one report for that recipient.
-9. Company-wide distribution requires its own approval, active subscriptions, production mode and `INTELLIGENCE_PRODUCTION_EMAIL_APPROVED=true`.
+8. Configure `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, `GMAIL_REFRESH_TOKEN`, `GMAIL_SENDER` as server secrets, or bind the company mail service. Set `INTELLIGENCE_PUBLIC_ORIGIN=https://prg-workspace.prg-team.workers.dev` and an explicitly approved `INTELLIGENCE_TEST_RECIPIENTS` list. Then configure build variable `PRG_ALLOW_EMAIL=true`, redeploy to set `INTELLIGENCE_EMAIL_APPROVED=true`, and select test mode and approve one report for that recipient.
+9. Company-wide distribution requires its own approval, active subscriptions, production mode and build variable `PRG_ALLOW_PRODUCTION_EMAIL=true`, which sets `INTELLIGENCE_PRODUCTION_EMAIL_APPROVED=true` on deployment. Every build explicitly sets all four approval switches to false unless its corresponding approved build variable is true.
 
 The main branch automatically deploys to Cloudflare. Do not merge/push this change to main before deployment approval. A review branch is safe for code review but is not a production activation.
 
